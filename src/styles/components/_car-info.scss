@@ -1,0 +1,71 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.car-info {
+  display: grid;
+  gap: 40px;
+  align-items: flex-start;
+  &:has(.value-box) {
+    @include mqpc() {
+      grid-template-columns: 1fr 420px;
+    }
+    .car-info__contents {
+      @include mqpc(lg) {
+        grid-template-columns: 1fr clamp(46%, 46%, 290px);
+      }
+    }
+  }
+  @include mqsp() {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  &__contents {
+    display: grid;
+    grid-template-columns: 336px 1fr;
+    gap: 40px;
+    @include mqsp(lg) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+  &__image {
+    @include mqsp(lg) {
+      order: 2;
+      img {
+        margin-inline: auto;
+      }
+    }
+    .caution {
+      color: #888888;
+      font-size: fz(14);
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+  }
+
+  &__text {
+  }
+
+  &__heading {
+    font-size: fz(20);
+    margin-bottom: 16px;
+  }
+
+  &__desc {
+  }
+
+  &__label {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 5px;
+    > li {
+      background: #ffd197;
+      padding: 1px 8px 2px;
+      border-radius: 100vmax;
+    }
+  }
+
+  &__value {
+  }
+}

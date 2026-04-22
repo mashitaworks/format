@@ -1,0 +1,24 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$positions: (
+  "static": static,
+  "relative": relative,
+  "absolute": absolute,
+  "fixed": fixed,
+  "sticky": sticky,
+);
+
+@each $class, $position in $positions {
+  .position-#{$class} {
+    position: $position !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .position-#{$bp}-#{$class} {
+        position: $position !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$fontsizes: (
+  "xs": fz(12),
+  "sm": fz(14),
+  "base": 1rem,
+  "lg": fz(18),
+  "xl": fz(20),
+  "xxl": fz(24),
+  "xxxl": fz(26),
+  "xxxxl": fz(28),
+  "xxxxxl": fz(30),
+);
+
+@each $class, $fontsize in $fontsizes {
+  .fz-#{$class} {
+    font-size: $fontsize !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .fz-#{$bp}-#{$class} {
+        font-size: $fontsize !important;
+      }
+    }
+  }
+}
+
+// .fz-sm {
+//   @include mqsp {
+//     font-size: fz(12) !important;
+//   }
+// }
+
+.fw-normal {
+  font-weight: normal !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.fw-bold {
+  font-weight: bold !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .fw-#{$bp}-bold {
+      font-weight: bold !important;
+    }
+  }
+}
+
+$lineheights: (
+  "1": 1,
+  "sm": $line-height-sm,
+  "md": $line-height-md,
+  "base": $line-height-base, // "lg": $line-height-lg,
+);
+
+@each $class, $lineheight in $lineheights {
+  .lh-#{$class} {
+    line-height: $lineheight !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .lh-#{$bp}-#{$class} {
+        line-height: $lineheight !important;
+      }
+    }
+  }
+}
+
+$aligns: (
+  "left": left,
+  "right": right,
+  "center": center,
+);
+
+@each $class, $align in $aligns {
+  .text-#{$class} {
+    text-align: $align !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .text-#{$bp}-#{$class} {
+        text-align: $align !important;
+      }
+    }
+  }
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .text-#{$bp}-nowrap {
+      white-space: nowrap !important;
+    }
+  }
+}
+
+.color-gray {
+  color: #888888 !important;
+}
+
+.lang-en {
+  font-family: var(--font-family-en);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

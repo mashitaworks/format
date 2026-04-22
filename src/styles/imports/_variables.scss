@@ -1,0 +1,119 @@
+@use "sass:map";
+@forward "./env";
+
+$container-max-widths: (
+  sm: 540px,
+  // !default
+  md: 1100px,
+  lg: 960px,
+  // !default
+  xl: 1140px,
+  // !default
+  xxl: 1300px,
+);
+
+$margins: (
+  0: 0,
+  // !default
+  xs: 0.25rem,
+  // 4px
+  // !default
+  sm: 0.5rem,
+  // 8px
+  // !default
+  md: 1rem,
+  // 16px
+  // !default
+  lg: 1.5rem,
+  // 24px
+  // !default
+  xl: 2rem,
+  // 32px
+  // !default
+  xxl: 2.5rem,
+  // 40px
+  // !default
+  xxxl: 3rem,
+  // 48px
+  // !default
+  "4xl": 4rem,
+  // 64px
+  // !default
+  "5xl": 5rem,
+  // 80px
+  // !default
+  "6xl": 6rem,
+  // 96px
+  // !default
+  "7xl": 7rem,
+  // 112px
+  // !default
+  "8xl": 8rem,
+  // 128px
+  // !default
+  "9xl": 9rem,
+  // 144px
+  // !default
+  "10xl": 10rem,
+  // 160px
+   // !default
+);
+
+$gaps: (
+  0: 0,
+  // !default
+  xs: map.get($margins, "xs"),
+  // !default
+  sm: map.get($margins, "sm"),
+  // !default
+  md: map.get($margins, "md"),
+  // !default
+  lg: map.get($margins, "lg"),
+  // !default
+  xl: map.get($margins, "xl"),
+  // !default
+  xxl: map.get($margins, "xxl"),
+  // !default
+  xxxl: map.get($margins, "xxxl"),
+  // !default
+  "4xl": map.get($margins, "4xl"),
+  // !default
+  "5xl": map.get($margins, "5xl"),
+  // !default
+  "6xl": map.get($margins, "6xl"),
+  // !default
+  "7xl": map.get($margins, "7xl"),
+  // !default
+  "8xl": map.get($margins, "8xl"),
+  // !default
+  "9xl": map.get($margins, "9xl"),
+  // !default
+  "10xl": map.get($margins, "10xl"), // !default
+);
+
+// メディアクエリのブレイクポイント
+$breakpoints: (
+  "xs": 320px,
+  // !default
+  "sm": 576px,
+  // !default
+  "md": 768px,
+  // !default
+  "lg": 992px,
+  // !default
+  "xl": 1200px,
+  // !default
+  "xxl": 1400px, // !default
+);
+
+$cssbreakpoints: (
+  "xs": map-get($breakpoints, "xs"),
+  // !default
+  "sm": map.get($breakpoints, "sm"),
+  // !default
+  "md": map.get($breakpoints, "md"),
+  // !default
+  "lg": map.get($breakpoints, "lg"),
+  // !default
+  "xl": map.get($breakpoints, "xl"), // !default
+);

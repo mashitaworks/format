@@ -1,0 +1,43 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+// .price-grid {
+//   display: grid;
+//   gap: 19px;
+//   grid-template-columns: repeat(3, 1fr);
+//   @include mqsp(lg) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+//   @include mqsp {
+//     grid-template-columns: 1fr;
+//   }
+//   &__heading {
+//     text-align: center;
+//     font-size: fz(18);
+//     padding-bottom: 14px;
+//     border-bottom: 1px solid var(--navy);
+//     margin-bottom: 20px;
+//   }
+//   &__price {
+//     font-weight: 500;
+//     line-height: 1.2;
+//     font-size: fz(30);
+//     color: var(--orange_dark);
+//     text-align: center;
+//     display: flex;
+//     justify-content: center;
+//     align-items: baseline;
+//     gap: 0 6px;
+//     .number {
+//       font-size: fz(56);
+//     }
+//     .large {
+//       font-size: fz(40);
+//     }
+//   }
+//   .box {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//   }
+// }

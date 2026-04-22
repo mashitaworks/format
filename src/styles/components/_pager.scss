@@ -1,0 +1,96 @@
+// @use "../imports/mixins" as *;
+// @use "../imports/variables" as *;
+
+// .pager {
+//   display: flex;
+//   column-gap: 48px;
+//   @include mqsp {
+//     flex-direction: column-reverse;
+//     row-gap: 16px;
+//     max-width: 360px;
+//     margin-inline: auto;
+//   }
+// }
+// .pager__nav {
+//   flex-grow: 1;
+//   display: flex;
+//   justify-content: center;
+//   column-gap: 40px;
+//   @include mqsp {
+//     justify-content: space-between;
+//   }
+// }
+// .pager__back,
+// .pager__prev,
+// .pager__next {
+//   text-decoration: none;
+//   border-bottom: 1px solid currentColor;
+//   padding-block: 8px;
+//   width: 100%;
+//   max-width: 130px;
+//   display: inline-flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+// .pager__back {
+//   @include mqsp {
+//     max-width: none;
+//   }
+//   &::before {
+//     content: "";
+//     display: block;
+//     width: 1em;
+//     height: 1em;
+
+//     background: currentColor;
+//     mask: url(/crafts/assets/images/ic_link.webp);
+//     mask-repeat: no-repeat;
+//     mask-size: 5px 8px;
+//     mask-position: center right;
+//     rotate: 180deg;
+//   }
+// }
+// .pager__prev {
+//   &::before {
+//     content: "";
+//     display: block;
+//     width: 1em;
+//     height: 1em;
+
+//     background: currentColor;
+//     mask: url(/crafts/assets/images/ic_link.webp);
+//     mask-repeat: no-repeat;
+//     mask-size: 5px 8px;
+//     mask-position: center right;
+//     rotate: 180deg;
+//   }
+// }
+// .pager__next {
+//   &::after {
+//     content: "";
+//     display: block;
+//     width: 1em;
+//     height: 1em;
+
+//     background: currentColor;
+//     mask: url(/crafts/assets/images/ic_link.webp);
+//     mask-repeat: no-repeat;
+//     mask-size: 5px 8px;
+//     mask-position: center right;
+//   }
+// }
+// span.pager__prev {
+//   color: var(--gray);
+//   pointer-events: none;
+//   justify-content: flex-end;
+//   &::before {
+//     display: none;
+//   }
+// }
+// span.pager__next {
+//   color: var(--gray);
+//   pointer-events: none;
+//   &::after {
+//     display: none;
+//   }
+// }

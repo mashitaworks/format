@@ -1,0 +1,193 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .flex-#{$bp}-fill {
+      flex: 1 1 auto !important;
+    }
+  }
+}
+
+$directions: (
+  "row": row,
+  "column": column,
+  "row-reverse": row-reverse,
+  "column-reverse": column-reverse,
+);
+
+@each $class, $direction in $directions {
+  .flex-#{$class} {
+    flex-direction: $direction !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .flex-#{$bp}-#{$class} {
+        flex-direction: $direction !important;
+      }
+    }
+  }
+}
+
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .flex-#{$bp}-grow-0 {
+      flex-grow: 0 !important;
+    }
+  }
+}
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .flex-grow-#{$bp}-1 {
+      flex-grow: 1 !important;
+    }
+  }
+}
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .flex-shrink#{$bp}--0 {
+      flex-shrink: 0 !important;
+    }
+  }
+}
+
+.flex-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .flex-shrink-#{$bp}-1 {
+      flex-shrink: 1 !important;
+    }
+  }
+}
+
+$wraps: (
+  "wrap": wrap,
+  "nowrap": nowrap,
+  "wrap-reverse": wrap-reverse,
+);
+
+@each $class, $wrap in $wraps {
+  .flex-#{$class} {
+    flex-wrap: $wrap !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .flex-#{$bp}-#{$class} {
+        flex-wrap: $wrap !important;
+      }
+    }
+  }
+}
+
+$justifies: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "between": space-between,
+  "around": space-around,
+  "evenly": space-evenly,
+);
+
+@each $class, $justify in $justifies {
+  .justify-content-#{$class} {
+    justify-content: $justify !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .justify-content-#{$bp}-#{$class} {
+        justify-content: $justify !important;
+      }
+    }
+  }
+}
+
+$items: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "baseline": baseline,
+  "stretch": stretch,
+);
+
+@each $class, $item in $items {
+  .align-items-#{$class} {
+    align-items: $item !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .align-items-#{$bp}-#{$class} {
+        align-items: $item !important;
+      }
+    }
+  }
+}
+
+$contents: (
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "between": space-between,
+  "around": space-around,
+  "stretch": stretch,
+);
+
+@each $class, $content in $contents {
+  .align-content-#{$class} {
+    align-content: $content !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .align-content-#{$bp}-#{$class} {
+        align-content: $content !important;
+      }
+    }
+  }
+}
+
+$selfs: (
+  "auto": auto,
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "baseline": baseline,
+  "stretch": stretch,
+);
+
+@each $class, $self in $selfs {
+  .align-self-#{$class} {
+    align-self: $self !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .align-self-#{$bp}-#{$class} {
+        align-self: $self !important;
+      }
+    }
+  }
+}

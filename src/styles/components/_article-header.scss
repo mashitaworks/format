@@ -1,0 +1,27 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.article-header {
+  padding-right: var(--side-padding);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 16px;
+  @include mqsp {
+    padding-inline: var(--side-padding-mobile);
+  }
+}
+.article-header__time {
+}
+.article-header__tag {
+}
+.article-header__title {
+  font-size: fz(24);
+  font-weight: normal;
+  width: 100%;
+  @include mqsp {
+    font-size: fz(20);
+  }
+}

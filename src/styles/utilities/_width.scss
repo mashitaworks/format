@@ -1,0 +1,45 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$widths: (
+  "25": 25%,
+  "50": 50%,
+  "66": 66%,
+  "75": 75%,
+  "100": 100%,
+  "auto": auto,
+);
+
+@each $class, $width in $widths {
+  .w-#{$class} {
+    width: $width !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .w-#{$bp}-#{$class} {
+        width: $width !important;
+      }
+    }
+  }
+}
+
+.mw-100 {
+  max-width: 100% !important;
+}
+
+.w-fit {
+  width: fit-content !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .mw-#{$bp}-100 {
+      max-width: 100% !important;
+    }
+  }
+}
+
+.minh-unset {
+  min-height: unset !important;
+}

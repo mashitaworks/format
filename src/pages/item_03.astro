@@ -1,0 +1,207 @@
+---
+import Layout from "@layouts/Layout.astro";
+const title = "KANEKA OLED 4SIDE";
+const description = "4枚の「KANEKA OLED」をそれぞれ傾斜させて配置することで、広がりのあるやわらかな拡散光を生み出すフロアスタンド";
+const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
+---
+
+<Layout title={title} description={description}>
+  <section class="section fv item03__fv">
+    <div class="fv__inner top__inner">
+      <picture>
+        <source media="(max-width: 768px)" srcset={`${baseUrl}/images/top_item03_sp.webp`} />
+        <img src={`${baseUrl}/images/top_item03.webp`} alt="KANEKA OLED 4SIDE" />
+      </picture>
+    </div>
+  </section>
+
+  <!-- item -->
+  <section class="section main-product">
+    <div class="section__inner">
+      <ul class="main-product__content">
+        <li class="main-product__description">
+          <h2 class="main-product__description__title">4SIDE</h2>
+          <h3 class="main-product__description__read">4枚の「KANEKA OLED」が生む、立体的な拡散光。</h3>
+          <p class="main-product__description__text">4枚の「KANEKA OLED」をそれぞれ傾斜させて配置することで、広がりのあるやわらかな拡散光を生み出すフロアスタンド。ソファやリーディングチェアのそばに置くことで、手元をやさしく、立体的に照らします。シンプルでジオメトリックな照明デザインは空間と調和し、灯すことで静かにその場に奥行きを加えます。</p>
+          <div class="main-product__description__price">
+            <p class="main-product__description__price-text">00,000</p>
+            <span class="main-product__description__price-unit">円(税込)</span>
+          </div>
+          <a href="#salesGoodsArea" class="buy__button">
+            <span class="buy__button-inner">購入する</span>
+          </a>
+        </li>
+
+        <li class="main-product__image">
+          <div class="main-product__image-container">
+            <button class="arrow-left"></button>
+            <div class="main-product__image-main">
+              <img src={`${baseUrl}/images/product03_img01.webp`} alt="4SIDE" />
+            </div>
+            <button class="arrow-right"></button>
+          </div>
+          <ul class="main-product__image-sub">
+            <li class="is-select"><img src={`${baseUrl}/images/product03_img01.webp`} alt="4SIDE" /></li>
+            <li><img src={`${baseUrl}/images/product03_img02.webp`} alt="4SIDE" /></li>
+            <li><img src={`${baseUrl}/images/product03_img03.webp`} alt="4SIDE" /></li>
+            <li><img src={`${baseUrl}/images/product03_img04.webp`} alt="4SIDE" /></li>
+            <li><img src={`${baseUrl}/images/product03_img05.webp`} alt="4SIDE" /></li>
+            <li><img src={`${baseUrl}/images/product03_img06.webp`} alt="4SIDE" /></li>
+          </ul>
+        </li>
+      </ul>
+
+      <dl class="main-product__list">
+        <dt>製品名</dt>
+        <dd>4SIDE</dd>
+        <dt>材質</dt>
+        <dd>本体：アルミ、スチール（スチール詳細確認中）</dd>
+        <dt>光源</dt>
+        <dd>KANEKA OLED</dd>
+        <dt>色温度/演色性</dt>
+        <dd>2700K/Ra95</dd>
+        <dt>調光仕様</dt>
+        <dd>4段階調光</dd>
+        <dt>電源種類</dt>
+        <dd>AC100Vコンセント</dd>
+        <dt>サイズ/重量</dt>
+        <dd>0000/00000</dd>
+        <dt>デザイン</dt>
+        <dd>C.O.D.</dd>
+        <dt>生産国</dt>
+        <dd>日本</dd>
+      </dl>
+      <div class="button-wrapper">
+        <a href="#salesGoodsArea" class="buy__button">
+          <span class="buy__button-inner">購入する</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- product -->
+  <section class="section product">
+    <div class="section__inner">
+      <h2 class="section__title">他の製品を見る</h2>
+
+      <div class="product__list is-center">
+        <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item/" class="product__item">
+          <div class="">
+            <img src={`${baseUrl}/images/product01.webp`} alt="T-Lamp L" />
+          </div>
+          <p class="product__brand">KANEKA OLED CRAFTS</p>
+          <span class="product__name">T-Lamp L</span>
+        </a>
+        <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item02?color=white" class="product__item">
+          <div class="">
+            <img src={`${baseUrl}/images/product02.webp`} alt="T-Lamp S(white)" />
+          </div>
+          <p class="product__brand">KANEKA OLED CRAFTS</p>
+          <span class="product__name">T-Lamp S</span>
+        </a>
+        <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item02?color=beige" class="product__item">
+          <div class="">
+            <img src={`${baseUrl}/images/product03.webp`} alt="T-Lamp S(Beige)" />
+          </div>
+          <p class="product__brand">KANEKA OLED CRAFTS</p>
+          <span class="product__name">T-Lamp S</span>
+        </a>
+        <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item02?color=brick" class="product__item">
+          <div class="">
+            <img src={`${baseUrl}/images/product04.webp`} alt="T-Lamp S(Brick)" />
+          </div>
+          <p class="product__brand">KANEKA OLED CRAFTS</p>
+          <span class="product__name">T-Lamp S</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- crafts -->
+  <section class="section crafts">
+    <div class="section__inner">
+      <h2 class="section__title">KANEKA OLED CRAFTSについて</h2>
+
+      <ul class="box__content">
+        <li class="box__content-read">
+          <div class="box__header">
+            <h3 class="box__title">暮らしに、空間に、美しさを添えるあかりを。</h3>
+            <div class="box__logo"><img src={`${baseUrl}/images/bar_logo.webp`} alt="KANEKA OLED CRAFTS" /></div>
+            <p class="box__text">「KANEKA OLED」の光にふさわしい器として生まれたのが、KANEKA OLED CRAFTSです。</p>
+            <a href="https://www.kanekaoled.jp/crafts/" target="_blank" class="cta__button">
+              <span class="cta__button-inner">製品サイトを見る<span class="sr-only">新しいウィンドウで開きます</span></span>
+            </a>
+          </div>
+        </li>
+        <li class="box__content-pic">
+          <img src={`${baseUrl}/images/bar_img01.webp`} alt="KANEKA OLED CRAFTS" />
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- crafts -->
+  <section class="section crafts">
+    <div class="section__inner">
+      <h2 class="section__title">KANEKA OLEDについて</h2>
+      <ul class="box__content">
+        <li class="box__content-read">
+          <div class="box__header">
+            <h3 class="box__title">次の時代のあかりとは何か。カネカが出した答えです。</h3>
+            <div class="box__logo"><img src={`${baseUrl}/images/bar_logo02.webp`} alt="KANEKA OLED" /></div>
+            <p class="box__text">「KANEKA OLED」は、わずか1.1mmの薄いガラス板が面で発光する新しい照明光源です。</p>
+            <a href="https://www.kanekaoled.jp/" target="_blank" class="cta__button">
+              <span class="cta__button-inner">ブランドサイトを見る<span class="sr-only">新しいウィンドウで開きます</span></span>
+            </a>
+          </div>
+        </li>
+        <li class="box__content-pic">
+          <img src={`${baseUrl}/images/bar_img02.webp`} alt="KANEKA OLED" />
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- payment_list -->
+  <section class="section crafts">
+    <div class="section__inner">
+      <h2 class="section__title">支払方法</h2>
+
+      <dl class="main-product__list payment_list">
+        <dt>お届け</dt>
+        <dd>ご注文受付から1週間前後でお届けします。</dd>
+        <dt>お支払い</dt>
+        <dd class="h-100">
+          「クレジットカード」「あと払い(ペイディ)」からご選択いただけます。※PayPayはご利用いただけません。
+          <ul class="payment_list-sub">
+            <li>
+              <h3>クレジットカード決済に関して</h3>
+              <p>
+                以下のクレジットカードが、ご利用いただけます。VISA、MasterCard、AMERICANEXPRESS、JCB、Diners<br />
+                お支払は一括払いのみとさせていただいております。
+              </p>
+            </li>
+            <li>
+              <h3>あと払い(ペイディ)に関して</h3>
+              <div class="payment_list-sub_pic"><img src={`${baseUrl}/images/paidy.webp`} alt="paidy" /></div>
+              <p>事前登録不要、クレジットカード登録不要です。<br />メールアドレスと携帯電話番号だけで、今すぐ購入できます。<br />お支払いは翌月27日までに、コンビニ払い・銀行振込・口座振替となります。<br />1か月に何度購入しても、お支払いは翌月まとめて1回でOKです。<br />さらに、ペイディアプリから本人確認をすると、分割手数料無料*の3回あと払い**、ご利用可能額の確認、使い過ぎを防止する予算設定など、便利な機能がご利用いただけます。</p>
+              <span>*口座振替・銀行振込のみ無料</span>
+              <span>**1回のご利用金額が3,000円以上の場合のみ利用可能</span>
+            </li>
+          </ul>
+        </dd>
+        <dt>返品・交換</dt>
+        <dd>お客様のご都合（ご注文間違い、お気に召さないなど）による返品・交換は、承っておりません。あらかじめご了承ください。 なお、お届け商品がご注文内容と異なっていたり、不良品・破損品がありましたら、商品のご到着から1週間以内にお問い合わせフォームよりご注文番号をご記載のうえご連絡ください。 返品・交換に要する送料及び返金手数料は弊社が負担いたします。</dd>
+        <dt>販売会社</dt>
+        <dd>カネカ 東京本社<br />〒107-6028 東京都港区赤坂1-12-32<br />TEL:(03)5574-8000</dd>
+        <dt>個人情報に関する取り扱い</dt>
+        <dd>
+          <p class="main-product__list-text">
+            お客様からお預かりする個人情報は、ご注文商品のお届けのほか、商品案内やキャンペーン案内等にご利用させていただきます。<br />
+            弊社プライバシーポリシー　<a href="https://shop.kaneka.co.jp/s/privacypolicy/" target="_blank">https://shop.kaneka.co.jp/s/privacypolicy/<span class="sr-only">新しいウィンドウで開きます</span></a>
+          </p>
+        </dd>
+      </dl>
+    </div>
+  </section>
+</Layout>

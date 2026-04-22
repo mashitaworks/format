@@ -1,0 +1,36 @@
+# build output
+dist/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+*.log
+
+# environment variables
+.env
+.env.production
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# astro
+.astro/
+
+# cache
+.cache/
+.tmp/
+temp/
+
+# git lock (safety)
+.git/index.lock

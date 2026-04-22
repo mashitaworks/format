@@ -1,0 +1,49 @@
+{
+  "name": "astro-pj",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development astro dev",
+    "start": "astro dev --host",
+    "build": "cross-env NODE_ENV=production astro check && astro build",
+    "postbuild": "cross-env NODE_ENV=production npm run sass-compile && npm run js && npm run optimize-images && npm run prettier",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prettier": "prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore",
+    "optimize-images": "node optimize-images.mjs",
+    "sass-compile": "node scripts/generate-scss-env.mjs && sass src/styles/style.scss dist/assets/css/style.css --no-source-map && postcss dist/assets/css/style.css --config postcss.config.cjs -o dist/assets/css/style.css",
+    "js": "vite build"
+  },
+  "browserslist": [
+    "iOS >= 15",
+    "last 2 ChromeAndroid versions",
+    "last 2 Chrome versions",
+    "last 2 Edge versions",
+    "last 2 Firefox versions",
+    "last 2 safari major versions"
+  ],
+  "volta": {
+    "node": "20.10.0",
+    "npm": "10.2.3"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "astro": "^4.15.10",
+    "astro-relative-links": "^0.4.0",
+    "sass-embedded": "^1.79.4",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "cross-env": "^7.0.3",
+    "imagemin-cli": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "postcss-cli": "^11.0.1",
+    "postcss-sort-media-queries": "^5.2.0",
+    "postcss-url": "^10.1.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}

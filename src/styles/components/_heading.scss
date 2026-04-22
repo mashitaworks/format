@@ -1,0 +1,25 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.section__title {
+  font-size: fz(20);
+  line-height: 2;
+  margin-bottom: 30px;
+  letter-spacing: 0.1rem;
+  font-weight: normal;
+  text-align: center;
+
+  @include mqsp(lg) {
+    font-size: fz(18);
+    line-height: 1.5;
+  }
+
+  &-sub {
+    font-size: fz(14);
+    letter-spacing: 0.1rem;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 54px;
+    margin-top: -11px;
+  }
+}

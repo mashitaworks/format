@@ -1,0 +1,20 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.fieldset {
+  // all: unset;
+  display: block;
+  border: none;
+  & + & {
+    margin-top: 32px;
+  }
+}
+
+.fieldset__legend {
+  width: 100%;
+  margin-bottom: 4px;
+  border-top: 1px solid var(--black);
+  @include mqsp {
+    padding-top: 8px;
+  }
+}

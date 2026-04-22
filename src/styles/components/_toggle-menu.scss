@@ -1,0 +1,51 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+// .toggle-menu {
+//   position: absolute;
+//   z-index: 10;
+//   bottom: -2px;
+//   transform: translateY(100%);
+//   right: 0;
+//   display: none;
+//   &__inner {
+//     padding: 0 20px 40px;
+//     border-radius: 20px;
+//     background: var(--navy);
+//     color: var(--white);
+//     @include mqpc {
+//       min-width: 480px;
+//     }
+//   }
+//   &__banner {
+//     margin-top: 30px;
+//     img {
+//       margin-inline: auto;
+//     }
+//   }
+//   &__list {
+//     &-item {
+//       border-bottom: 1px solid #5673ae;
+//       display: grid;
+//       gap: 0 12px;
+//       grid-template-columns: 12px 1fr;
+//       &::before {
+//         content: "";
+//         width: 12px;
+//         height: 16px;
+//         background: url(/crafts/assets/images/ic_heading.webp) no-repeat center center /
+//           cover;
+//         margin-top: 24px;
+//       }
+//     }
+//     &-link {
+//       font-weight: bold;
+//       font-size: fz(16);
+//       text-decoration: none;
+//       padding: 10px 0;
+//       align-items: center;
+//       display: flex;
+//       min-height: 60px;
+//     }
+//   }
+// }

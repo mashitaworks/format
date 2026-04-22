@@ -1,0 +1,69 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.media-block {
+  display: grid;
+  row-gap: 32px;
+  @include mqpc {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin-inline: calc(var(--side-padding) * -1);
+  }
+
+  & + & {
+    margin-top: 144px;
+    @include mqsp {
+      margin-top: 64px;
+    }
+  }
+}
+
+.media-block__media {
+  .media-block--media-right & {
+    @include mqpc {
+      order: 2;
+    }
+  }
+}
+
+.media-block__content {
+  padding-inline: var(--side-padding);
+  @include mqsp {
+    padding-inline: 0;
+  }
+
+  .media-block--media-right & {
+    @include mqpc {
+      order: 1;
+    }
+  }
+}
+
+.media-block__text {
+  font-size: fz(16);
+
+  &--lg {
+    font-size: fz(24);
+    @include mqsp {
+      font-size: fz(16);
+    }
+  }
+
+  &--xl {
+    font-size: fz(32);
+    @include mqsp {
+      font-size: fz(22);
+    }
+  }
+
+  & + & {
+    margin-top: 24px;
+  }
+}
+
+.media-block__button {
+  margin-top: 64px;
+  @include mqsp {
+    margin-top: 32px;
+  }
+}

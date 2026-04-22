@@ -1,0 +1,81 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.faq-block {
+  border-bottom: 1px solid var(--black);
+  &:first-child {
+    border-top: 1px solid var(--black);
+  }
+}
+.faq-block__head {
+  width: 100%;
+  display: flex;
+  column-gap: 16px;
+  padding-block: 24px;
+  @include mqsp {
+    padding-block: 16px;
+  }
+  &::before {
+    content: "Q";
+    font-family: var(--font-family-en);
+    font-size: fz(30);
+    line-height: 1;
+    @include mqsp {
+      font-size: fz(26);
+    }
+  }
+}
+.faq-block__q {
+}
+.faq-block__accordion-icon {
+  flex-shrink: 0;
+  position: relative;
+  margin-left: auto;
+  width: 32px;
+  @include mqsp {
+    width: 22px;
+  }
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  &::before {
+  }
+  &::after {
+    transition: 0.2s rotate ease-in-out;
+    rotate: 90deg;
+    .faq-block[aria-expanded="true"] & {
+      transform-origin: center center;
+      rotate: 0deg;
+    }
+  }
+}
+.faq-block__body {
+  display: flex;
+  column-gap: 16px;
+  padding-left: 40px;
+  @include mqsp {
+    padding-left: 0;
+  }
+  &::before {
+    content: "A";
+    font-family: var(--font-family-en);
+    font-size: fz(30);
+    line-height: 1;
+    @include mqsp {
+      font-size: fz(26);
+    }
+  }
+}
+.faq-block__a {
+  padding-bottom: 24px;
+  @include mqsp {
+    padding-bottom: 16px;
+  }
+}

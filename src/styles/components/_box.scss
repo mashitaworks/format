@@ -1,0 +1,69 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.box__content {
+  margin-top: -10px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  @include mqsp(lg) {
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    width: calc(100% / 2);
+    max-width: 600px;
+    max-height: 360px;
+    @include mqsp(lg) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-read {
+    padding: 70px 60px;
+    background: #ebebe5;
+    @include mqsp(lg) {
+      order: 1;
+      padding: 40px;
+    }
+    @include mqsp() {
+      padding: 24px;
+    }
+  }
+
+  &-pic {
+    width: 100%;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.box__header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 13px;
+}
+.box__title {
+  font-size: fz(16);
+  font-weight: 400;
+  @include mqsp() {
+    font-size: fz(13);
+  }
+}
+.box__text {
+  font-size: fz(16);
+  font-weight: 400;
+  max-width: 470px;
+  @include mqsp() {
+    font-size: fz(13);
+  }
+}
+
+.box__logo {
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+}

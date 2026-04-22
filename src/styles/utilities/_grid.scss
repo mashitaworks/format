@@ -1,0 +1,84 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+.js-filter-item {
+  display: none;
+}
+.grid {
+  display: grid !important;
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .grid-#{$bp} {
+        display: grid !important;
+      }
+    }
+  }
+  &--ai-center {
+    align-items: center;
+  }
+}
+
+@for $i from 1 through 12 {
+  .grid-cols-#{$i} {
+    grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+  }
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .grid-cols-#{$bp}-#{$i} {
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+// .gap-x-lg {
+//   column-gap: calc(24 / 1366 * 100vw);
+// }
+// .gap-x-xl {
+//   column-gap: calc(32 / 1366 * 100vw);
+// }
+// .gap-x-xxl {
+//   column-gap: calc(40 / 1366 * 100vw);
+// }
+// .gap-x-6xl {
+//   column-gap: calc(96 / 1366 * 100vw);
+// }
+
+@each $gapsize, $value in $gaps {
+  .gap-#{$gapsize} {
+    gap: $value !important;
+  }
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .gap-#{$bp}-#{$gapsize} {
+        gap: $value !important;
+      }
+    }
+  }
+}
+
+@each $gapsize, $value in $gaps {
+  .gap-x-#{$gapsize} {
+    column-gap: $value;
+  }
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .gap-x-#{$bp}-#{$gapsize} {
+        column-gap: $value !important;
+      }
+    }
+  }
+}
+
+@each $gapsize, $value in $gaps {
+  .gap-y-#{$gapsize} {
+    row-gap: $value;
+  }
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .gap-y-#{$bp}-#{$gapsize} {
+        row-gap: $value !important;
+      }
+    }
+  }
+}

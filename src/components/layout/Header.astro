@@ -1,0 +1,67 @@
+---
+// サイトヘッダーコンポーネント
+
+interface Props {
+  currentPage?: string;
+}
+const { currentPage } = Astro.props;
+const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
+---
+
+<header id="header" class="layout-header js-mega-menu">
+  <div class="layout-header__inner">
+    <a href="https://stg.shop.kaneka.co.jp/lp/OLED_top/" class="layout-header__logo">
+      <img src={`${baseUrl}/images/kaneka_logo01.webp`} alt="Kaneka カガクでネガイをカナエル会社 オンラインストア" width="107" height="45" />
+    </a>
+    <button class="layout-header__button header-button" aria-expanded="false" aria-controls="headerMenu">
+      <span class="header-button__icon"><span></span></span>
+    </button>
+  </div>
+  <div id="headerMenu" class="header-menu">
+    <div class="header-menu__inner">
+      <nav class="header-menu__grid">
+        <div class="header-menu__grid-item">
+          <ul class="header-menu__list">
+            <li>
+              <a href="https://stg.shop.kaneka.co.jp/lp/OLED_top/" class="js-mega-menu-trigger" aria-expanded="false" aria-controls="headerMenu01">TOP</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-menu__grid-item">
+          <ul class="header-menu__list">
+            <li>
+              <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item/" class="js-mega-menu-trigger" aria-expanded="false" aria-controls="headerMenu02">T-Lamp L</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-menu__grid-item">
+          <ul class="header-menu__list">
+            <li>
+              <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item02/" class="js-mega-menu-trigger" aria-expanded="false" aria-controls="headerMenu03">T-Lamp S</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-menu__grid-item">
+          <ul class="header-menu__list">
+            <li>
+              <a href="https://stg.shop.kaneka.co.jp/lp/OLED_item03/" class="js-mega-menu-trigger" aria-expanded="false" aria-controls="headerMenu04">4SIDE</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-menu__grid-item d-none d-lg-block">
+          <ul class="header-menu__list header-menu__list--contact">
+            <li>
+              <img src={`${baseUrl}/images/kaneka_logo02.webp`} alt="Kaneka カガクでネガイをカナエル会社" width="107" height="45" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-menu__sub-area">
+        <small class="header-menu__copy">All contents Copyright © Kaneka Corporation.All rights reserved.</small>
+        <a href="https://www.kaneka.co.jp/" target="_blank" class="header-menu__logo">
+          <img src={`${baseUrl}/images/logo_square.webp`} alt="カガクでネガイをカナエル会社 Kaneka" width="154" height="166" />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$visibilities: (
+  "visible": visible,
+  "invisible": hidden,
+);
+
+@each $class, $visible in $visibilities {
+  .#{$class} {
+    visibility: $visible !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .#{$bp}-#{$class} {
+        visibility: $visible !important;
+      }
+    }
+  }
+}

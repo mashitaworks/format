@@ -1,0 +1,8 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+.px-sm-md {
+  @include mqsp {
+    padding-inline: 1rem !important;
+  }
+}

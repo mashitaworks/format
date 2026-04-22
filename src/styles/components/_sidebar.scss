@@ -1,0 +1,166 @@
+// @use "../imports/mixins" as *;
+// @use "../imports/variables" as *;
+
+// .sidebar-layout-container {
+//   display: grid;
+//   grid-template-columns: 1fr minmax(0, 840px) 1fr;
+//   column-gap: 30px;
+//   @include mqsp {
+//     grid-template-columns: auto;
+//   }
+// }
+
+// .sidebar-layout-container__nav {
+//   width: 230px;
+//   grid-row: 2;
+//   @include mqsp {
+//     width: auto;
+//     grid-row: auto;
+//     padding-inline: var(--side-padding-mobile);
+//     padding-block: 24px 32px;
+//   }
+//   // .sidebar-layout-container--type-toc & {
+//   //   grid-row: span 2;
+//   //   @include mqsp {
+//   //     grid-row: auto;
+//   //   }
+//   // }
+//   .sidebar-layout-container--type-article & {
+//     grid-row: span 2;
+//     @include mqsp {
+//       grid-row: auto;
+//     }
+//   }
+// }
+
+// .sidebar-layout-container__head {
+//   grid-column: span 3;
+//   &.__inMain {
+//     @include mqpc {
+//       grid-column: 2 / 4;
+//     }
+//   }
+//   @include mqsp {
+//     grid-column: auto;
+//   }
+//   // .sidebar-layout-container--type-toc & {
+//   //   grid-column: 2;
+//   //   @include mqsp {
+//   //     grid-column: auto;
+//   //   }
+//   // }
+//   .sidebar-layout-container--type-article & {
+//     grid-column: 2;
+//     @include mqsp {
+//       grid-column: auto;
+//     }
+//   }
+// }
+// .sidebar-layout-container__body {
+//   grid-column: 2 / 4;
+//   @include mqsp {
+//     grid-column: auto;
+//   }
+// }
+
+// .layout-sidebar {
+//   position: sticky;
+//   top: 130px;
+//   @include mqsp {
+//     position: static;
+//   }
+//   &--toc {
+//     // top: 230px;
+//     @include mqsp {
+//       position: static;
+//     }
+//   }
+//   &__list {
+//     display: grid;
+//     row-gap: 4px;
+//     @include mqsp {
+//       grid-template-columns: repeat(2, 1fr);
+//       gap: 4px;
+//     }
+//   }
+//   &__item {
+//     display: grid;
+//   }
+//   &__link {
+//     min-height: 50px;
+//     font-size: fz(14);
+//     text-decoration: none;
+//     padding: 16px 10px 16px 20px;
+//     background-color: var(--black);
+//     color: var(--white);
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     @include mqsp {
+//       font-size: fz(12);
+//       padding: 8px 15px;
+//     }
+
+//     &::after {
+//       content: "";
+//       display: block;
+//       width: 1em;
+//       height: 1em;
+//       background: currentColor;
+//       mask: url(/crafts/assets/images/ic_link.webp);
+//       mask-repeat: no-repeat;
+//       mask-size: 5px 8px;
+//       mask-position: center right;
+//     }
+
+//     &.is-current {
+//       background-color: var(--light-gray);
+//       color: var(--black);
+//     }
+
+//     &:hover {
+//     }
+//   }
+
+//   &__sub-list {
+//     background-color: var(--light-gray);
+//     padding-bottom: 12px;
+//     @include mqsp {
+//       display: none;
+//     }
+//   }
+//   &__sub-item {
+//   }
+//   &__sub-link {
+//     font-size: 12px;
+//     text-decoration: none;
+//     display: flex;
+//     padding: 4px 10px 4px 20px;
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//     &::before {
+//       content: "";
+//       display: block;
+//       height: 1px;
+//       width: 28px;
+//       background-color: currentColor;
+//       margin-top: 0.5lh;
+//       margin-right: 0.5em;
+//     }
+//     &::after {
+//       content: "";
+//       display: block;
+//       width: 1em;
+//       height: 1em;
+//       align-self: center;
+//       margin-left: auto;
+
+//       background: currentColor;
+//       mask: url(/crafts/assets/images/ic_link.webp);
+//       mask-repeat: no-repeat;
+//       mask-size: 5px 8px;
+//       mask-position: center right;
+//     }
+//   }
+// }

@@ -1,0 +1,35 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+  @include mqsp {
+    column-gap: 12px;
+  }
+}
+.tabs__item {
+  flex-grow: 1;
+}
+.tabs__button {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--light-gray);
+  text-align: center;
+  min-height: 70px;
+  box-sizing: border-box;
+
+  @include mqsp {
+    padding: 8px;
+    min-height: 50px;
+  }
+  &[aria-selected="true"] {
+    background-color: var(--black);
+    color: var(--white);
+    font-weight: bold;
+  }
+  &--light-primary {
+    background-color: var(--light-primary);
+  }
+}

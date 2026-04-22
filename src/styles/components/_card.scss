@@ -1,0 +1,231 @@
+// @use "../imports/mixins" as *;
+// @use "../imports/variables" as *;
+
+// // card
+// .card {
+// }
+// .card__media {
+//   img {
+//     width: 100%;
+//   }
+//   &.card__media--pc-img-half {
+//     @include mqpc {
+//       max-width: 500px;
+//       // margin-inline: auto;
+//     }
+//   }
+// }
+// .card__content {
+//   margin-top: 8px;
+// }
+// .card__lead {
+//   font-weight: bold;
+//   font-size: fz(20);
+//   @include mqsp {
+//     font-size: fz(18);
+//   }
+// }
+// .card__text {
+//   margin-top: 0;
+// }
+// .card__button {
+//   margin-top: 8px;
+//   margin-inline: auto;
+// }
+
+// // link-card
+// .link-card {
+//   text-decoration: none;
+//   &:hover {
+//     .link-card__media {
+//       img {
+//         transform: scale(1.05);
+//       }
+//     }
+//   }
+// }
+// .link-card__media {
+//   overflow: hidden;
+//   img {
+//     width: 100%;
+//         transition: transform 0.3s ease;
+//   }
+// }
+// .link-card__content {
+//   margin-top: 14px;
+// }
+// .link-card__text {
+//   font-size: fz(20);
+//   @include mqsp {
+//     font-size: fz(18);
+//   }
+//   .button-reaction & {
+//     transition: color 0.2s ease-out;
+//   }
+//   .button-reaction:hover & {
+//     color: var(--primary);
+//   }
+// }
+// .link-card__button {
+//   margin-top: 8px;
+//   @include mqsp {
+//     margin-top: 0;
+//   }
+// }
+
+// // case-card
+// .case-card {
+//   display: block;
+//   text-decoration: none;
+//   &.button-reaction {
+//     .case-card__text {
+//       transition: color 0.2s ease-out;
+//     }
+//     .case-card__media img {
+//       transition: transform 0.2s ease-out;
+//     }
+//     .case-card__text::after {
+//       transition: transform 0.2s ease-out;
+//     }
+//     &:hover {
+//       .case-card__text {
+//         color: var(--primary);
+//       }
+//       .case-card__media img {
+//         transform: scale(1.1);
+//       }
+//       .case-card__text::after {
+//         transform: translateX(10px);
+//       }
+//     }
+//   }
+// }
+// .case-card__media {
+//   overflow: hidden;
+//   aspect-ratio: 5 / 3;
+//   img {
+//     width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   }
+// }
+// .case-card__content {
+//   margin-top: 14px;
+//   padding-inline: 20px;
+//   &--no-indent {
+//     padding-inline: 0;
+//     .case-card__text {
+//       &::after {
+//         margin-right: 10px;
+//       }
+//     }
+//   }
+// }
+// .case-card__text {
+//   font-size: fz(20);
+//   line-height: 1.5;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+
+//   @include mqsp {
+//     font-size: fz(18);
+//   }
+
+//   &::after {
+//     content: "";
+//     display: block;
+//     width: 0.5em;
+//     height: 1em;
+//     background: currentColor;
+//     mask: url(/crafts/assets/images/ic_link.webp);
+//     mask-repeat: no-repeat;
+//     mask-size: contain;
+//     mask-position: center right;
+//   }
+// }
+// .case-card__tags {
+//   margin-top: 16px;
+//   margin-inline: auto;
+// }
+
+// // product-card
+// .product-card {
+//   display: grid;
+//   grid-template-rows: auto 1fr;
+//   row-gap: 16px;
+// }
+// .product-card-sub {
+//   border: 1px solid var(--dark-gray);
+//   padding: 24px;
+// }
+// .product-card__media {
+//   img {
+//     width: 100%;
+//   }
+// }
+// .product-card__media-main {
+//   aspect-ratio: 500 / 310;
+//   position: relative;
+//   img {
+//     position: absolute;
+//     inset: 0;
+//     transition: opacity 0.2s ease-out;
+//     opacity: 0;
+
+//     &.is-selected {
+//       opacity: 1;
+//     }
+//     &:not(.is-selected) {
+//       pointer-events: none;
+//     }
+//   }
+// }
+// .product-card__media-sub {
+//   margin-top: 18px;
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   column-gap: 12px;
+
+//   button {
+//     transition: opacity 0.2s ease-out;
+
+//     &:hover {
+//       opacity: 0.7;
+//     }
+
+//     &.is-selected {
+//       position: relative;
+//       &::before {
+//         content: "";
+//         position: absolute;
+//         inset: 0;
+//         border: 4px solid var(--primary);
+//       }
+//     }
+//   }
+// }
+// .product-card__media-item {
+//   &--lg {
+//     .product-card__media--multiple & {
+//       grid-column: span 2;
+//     }
+//   }
+// }
+// .product-card__content {
+// }
+// .product-card__series {
+// }
+// .product-card__model {
+//   font-size: fz(20);
+//   font-weight: bold;
+//   margin-bottom: 12px;
+// }
+// .product-card__tags {
+// }
+// .product-card__list {
+//   margin-top: 16px;
+// }
+// .product-card__docs {
+//   margin-top: 16px;
+// }

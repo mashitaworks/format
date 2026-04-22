@@ -1,0 +1,35 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$displays: (
+  "inline": inline,
+  "inline-block": inline-block,
+  "block": block,
+  "grid": grid,
+  "inline-grid": inline-grid,
+  "flex": flex,
+  "inline-flex": inline-flex,
+  "none": none,
+);
+
+@each $class, $display in $displays {
+  .d-#{$class} {
+    display: $display !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .d-#{$bp}-#{$class} {
+        display: $display !important;
+      }
+    }
+  }
+}
+
+.pc_none {
+  display: none;
+
+  @include mqsp() {
+    display: block;
+  }
+}

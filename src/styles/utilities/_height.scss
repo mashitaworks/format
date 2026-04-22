@@ -1,0 +1,35 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$heights: (
+  "25": 25%,
+  "50": 50%,
+  "75": 75%,
+  "100": 100%,
+  "auto": auto,
+);
+
+@each $class, $height in $heights {
+  .h-#{$class} {
+    height: $height !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .h-#{$bp}-#{$class} {
+        height: $height !important;
+      }
+    }
+  }
+}
+
+.mh-100 {
+  max-height: 100% !important;
+}
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .mh-#{$bp}-100 {
+      max-height: 100% !important;
+    }
+  }
+}

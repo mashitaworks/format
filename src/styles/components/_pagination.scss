@@ -1,0 +1,32 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.pagination__list {
+  display: flex;
+  column-gap: 40px;
+}
+.pagination__item {
+}
+.pagination__link {
+  font-family: var(--font-family-en);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 4px 2px;
+}
+.pagination__link--current {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+  }
+}

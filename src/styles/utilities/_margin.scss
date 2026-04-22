@@ -1,0 +1,57 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+@each $class, $margin in $margins {
+  .mb-#{$class} {
+    margin-bottom: $margin !important;
+  }
+  .mt-#{$class} {
+    margin-top: $margin !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .mb-#{$bp}-#{$class} {
+        margin-bottom: $margin !important;
+      }
+      .mt-#{$bp}-#{$class} {
+        margin-top: $margin !important;
+      }
+    }
+  }
+}
+
+.ml-md {
+  margin-left: 16px !important;
+}
+.ml-0 {
+  margin-left: 0 !important;
+}
+@include mqpc(md) {
+  .ml-md-0 {
+    margin-left: 0 !important;
+  }
+}
+@include mqpc(lg) {
+  .ml-lg-0 {
+    margin-left: 0 !important;
+  }
+}
+
+.m-inline-auto {
+  margin-inline: auto !important;
+}
+.m-inline-inherit {
+  margin-inline: inherit !important;
+}
+
+@each $bp, $size in $cssbreakpoints {
+  @include mqpc($bp) {
+    .m-inline-#{$bp}-auto {
+      margin-inline: auto !important;
+    }
+    .m-inline-#{$bp}-inherit {
+      margin-inline: inherit !important;
+    }
+  }
+}

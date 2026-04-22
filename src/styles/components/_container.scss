@@ -1,0 +1,92 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.container {
+  max-width: calc(var(--container-width) + (var(--side-padding) * 2));
+  padding-inline: var(--side-padding);
+  margin-inline: auto;
+  @include mqsp {
+    padding-inline: var(--side-padding-mobile);
+  }
+
+  // margin
+  &--mx-zero {
+    margin-inline: 0;
+  }
+
+  // padding
+  &--pt-lg {
+    padding-top: 60px;
+  }
+  &--pt-md-xl {
+    @include mqpc {
+      padding-top: 144px;
+    }
+  }
+  &--pb-lg {
+    padding-bottom: 144px;
+  }
+  &--pl-zero {
+    padding-left: 0;
+  }
+
+  // width
+  &--w-xs {
+    max-width: 700px;
+  }
+  &--w-sm {
+    max-width: 1023px;
+  }
+  &--w-lg {
+    max-width: 1366px;
+  }
+
+  &--bs-cb {
+    box-sizing: content-box;
+  }
+
+  // &--py-md {
+  //   padding-top: 32px;
+  //   padding-bottom: 32px;
+  //   @include mqsp {
+  //     padding-top: 16px;
+  //     padding-bottom: 16px;
+  //   }
+  // }
+  // &--py-lg {
+  //   padding-top: 80px;
+  //   padding-bottom: 80px;
+  //   @include mqsp {
+  //     padding-top: 40px;
+  //     padding-bottom: 40px;
+  //   }
+  // }
+  // &--py-zero {
+  //   padding-block: 0 !important;
+  // }
+  // &--pb-zero {
+  //   padding-bottom: 0 !important;
+  // }
+  // .layout-container & {
+  //   padding-left: 0;
+  //   padding-right: 0;
+  //   padding: 0 var(--side-padding-mobile);
+  //   max-width: calc(960px + var(--side-padding) * 2);
+  // }
+  // &:first-child {
+  //   .layout-container & {
+  //     padding-top: 0;
+  //   }
+  // }
+  // &:last-child {
+  //   .layout-container & {
+  //     padding-bottom: 0;
+  //   }
+  // }
+}
+
+.sm-full-bleed {
+  @include mqsp {
+    margin-inline: calc(var(--side-padding-mobile) * -1);
+  }
+}

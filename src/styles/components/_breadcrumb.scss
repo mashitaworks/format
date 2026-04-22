@@ -1,0 +1,49 @@
+// @use "../imports/mixins" as *;
+// @use "../imports/variables" as *;
+
+// .breadcrumb-wrapper {
+//   padding: 0 var(--side-padding);
+//   margin-inline: auto;
+//   @include mqsp {
+//     padding: 0 var(--side-padding-mobile);
+//   }
+// }
+
+// .breadcrumb {
+//   margin-bottom: 20px;
+//   margin-top: 8px;
+//   padding-left: 10px;
+//   &__list {
+//     display: flex;
+//     column-gap: 8px;
+//     flex-wrap: wrap;
+//     font-size: fz(12);
+//   }
+//   &__list-item {
+//     display: flex;
+//     column-gap: inherit;
+//     &:has(a) {
+//       &::after {
+//         content: "";
+//         display: block;
+//         width: 1em;
+//         height: 1lh;
+//         margin-top: 1px;
+//         background: currentColor;
+//         mask: url(/crafts/assets/images/ic_link.webp);
+//         mask-repeat: no-repeat;
+//         mask-size: 7px 11px;
+//         mask-position: center center;
+//       }
+//     }
+//     span {
+//       color: var(--primary);
+//     }
+//   }
+//   &__list-link {
+//     text-decoration: none;
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+// }

@@ -1,0 +1,347 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+// .calendar-grid {
+//   display: grid;
+//   gap: 40px;
+//   grid-template-columns: 1fr 460px;
+//   @include mqsp(lg) {
+//     grid-template-columns: minmax(0, 460px);
+//     justify-content: center;
+//   }
+//   .box {
+//     height: 100%;
+//   }
+// }
+
+// .time-table {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+//   &__heading {
+//     display: flex;
+//     justify-content: center;
+//     align-items: baseline;
+//     padding-bottom: 34px;
+//     border-bottom: 1px solid var(--navy);
+//     font-weight: normal;
+//     gap: 0 6px;
+//     line-height: 1;
+//     font-size: fz(24);
+//     border-bottom: 1px solid var(--navy);
+//     margin-bottom: 40px;
+//     @include mqsp {
+//       font-size: fz(24 * 0.8);
+//       padding-bottom: 16px;
+//       margin-bottom: 24px;
+//     }
+//   }
+
+//   .year {
+//     font-family: var(--inter);
+//     font-size: fz(30);
+//     @include mqsp {
+//       font-size: fz(30 * 0.8);
+//     }
+//   }
+
+//   .month {
+//     font-family: var(--inter);
+//     font-size: fz(49);
+//     @include mqsp {
+//       font-size: fz(49 * 0.8);
+//     }
+//     + .unit {
+//       font-size: fz(34);
+//       transform: translateY(-3px);
+//       @include mqsp {
+//         font-size: fz(34 * 0.8);
+//       }
+//     }
+//   }
+
+//   .day {
+//     font-family: var(--inter);
+//     font-size: fz(49);
+//     @include mqsp {
+//       font-size: fz(49 * 0.8);
+//     }
+//   }
+
+//   .unit {
+//     transform: translateY(-3px);
+//   }
+
+//   .date {
+//     font-family: var(--inter);
+//     font-size: fz(23);
+//     transform: translateY(-3px);
+//     @include mqsp {
+//       font-size: fz(23 * 0.8);
+//     }
+//   }
+
+//   &__line {
+//   }
+
+//   &__caution {
+//     display: flex;
+//     justify-content: center;
+//     gap: 0 26px;
+//     font-size: fz(14);
+//     margin-top: auto;
+//     margin-bottom: 0;
+//     @include mqsp(lg) {
+//       margin-top: 40px;
+//     }
+//   }
+
+//   .possible {
+//     display: flex;
+//     gap: 0 4px;
+//     align-items: center;
+//     &:before {
+//       content: "";
+//       display: inline-block;
+//       width: 14px;
+//       height: 14px;
+//       background: #c8f58e;
+//     }
+//   }
+
+//   .impossible {
+//     display: flex;
+//     gap: 0 4px;
+//     align-items: center;
+//     &:before {
+//       content: "";
+//       display: inline-block;
+//       width: 14px;
+//       height: 14px;
+//       background: url(/crafts/assets/images/ic_impossible.webp) no-repeat center center /
+//         contain;
+//     }
+//   }
+// }
+
+// .calendar {
+//   &__heading {
+//     display: grid;
+//     grid-template-columns: 20px 1fr 20px;
+//     background: #ededed;
+//     border-radius: 100vmax;
+//     margin: 0 -12px 16px;
+//     align-items: center;
+//     padding: 0 18px;
+//     &-date {
+//       text-align: center;
+//       font-size: fz(15);
+//       display: flex;
+//       align-items: baseline;
+//       justify-content: center;
+//       gap: 0 4px;
+//       .slash {
+//         font-size: fz(16);
+//       }
+//       .month {
+//         font-size: fz(25);
+//         font-family: var(--inter);
+//       }
+//     }
+//   }
+
+//   &__heading-button {
+//     &--prev {
+//       width: 20px;
+//       aspect-ratio: 1/1;
+//       position: relative;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       &::before {
+//         content: "";
+//         width: 12px;
+//         height: 12px;
+//         border-left: 1px solid var(--navy);
+//         border-bottom: 1px solid var(--navy);
+//         transform: rotate(45deg);
+//         display: block;
+//       }
+//       &:disabled {
+//         opacity: 0;
+//         pointer-events: none;
+//       }
+//     }
+//     &--next {
+//       width: 20px;
+//       aspect-ratio: 1/1;
+//       position: relative;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       &::before {
+//         content: "";
+//         width: 12px;
+//         height: 12px;
+//         border-left: 1px solid var(--navy);
+//         border-bottom: 1px solid var(--navy);
+//         transform: rotate(225deg);
+//         display: block;
+//       }
+//       &:disabled {
+//         opacity: 0;
+//         pointer-events: none;
+//       }
+//     }
+//   }
+
+//   &__weekdays {
+//     display: grid;
+//     grid-template-columns: repeat(7, 1fr);
+//   }
+
+//   &__weekday {
+//     text-align: center;
+//     font-size: fz(12);
+//   }
+//   .month {
+//   }
+
+//   &__body {
+//     display: grid;
+//     gap: 8px;
+//   }
+
+//   &__week {
+//     display: grid;
+//     grid-template-columns: repeat(7, 1fr);
+//   }
+
+//   &__day {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 2px;
+//     &-button {
+//       font-family: var(--inter);
+//       text-align: center;
+//       width: 100%;
+//       font-size: fz(22);
+//       line-height: 1;
+//       max-width: 37px;
+//       width: 100%;
+//       aspect-ratio: 1/1;
+//       border-radius: 100vmax;
+//       margin-inline: auto;
+//       &.is-today {
+//         background: #dde0e7;
+//       }
+//       &.is-disabled {
+//         color: #8995ae;
+//         pointer-events: none;
+//       }
+//       &.is-current {
+//         background: var(--navy);
+//         color: #fff;
+//       }
+//     }
+//   }
+
+//   &__situation {
+//     display: inline-grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     font-size: fz(10);
+//     margin-inline: auto;
+//     line-height: 1;
+//     gap: 0 3px;
+//     @include mqsp {
+//       gap: 0 1px;
+//     }
+//     > li {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       flex-direction: column;
+//     }
+//   }
+
+//   .status {
+//     width: 1em;
+//     aspect-ratio: 1/1;
+//     font-weight: bold;
+//     color: transparent;
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     background-size: contain;
+//     &--available {
+//       background-image: url(/crafts/assets/images/ic_available.webp);
+//       // color: #27a800;
+//     }
+
+//     &--caution {
+//       background-image: url(/crafts/assets/images/ic_caution.webp);
+//       // color: #ec6e00;
+//     }
+
+//     &--unavailable {
+//       background-image: url(/crafts/assets/images/ic_unavailable.webp);
+//       // color: #8995ae;
+//     }
+//   }
+
+//   .time {
+//   }
+//   &__caution {
+//     border-top: 1px solid #dddddd;
+//     padding-top: 15px;
+//     margin-top: 18px;
+//     display: flex;
+//     gap: 0 10px;
+//     justify-content: center;
+//     font-size: fz(15);
+
+//     .available {
+//       &::before {
+//         width: 12px;
+//         height: 12px;
+//         display: inline-block;
+//         content: "";
+//         background-repeat: no-repeat;
+//         background-position: center center;
+//         background-size: contain;
+//         vertical-align: middle;
+//         margin-right: 3px;
+//         background-image: url(/crafts/assets/images/ic_available.webp);
+//       }
+//     }
+
+//     .caution {
+//       &::before {
+//         width: 12px;
+//         height: 12px;
+//         display: inline-block;
+//         content: "";
+//         background-repeat: no-repeat;
+//         background-position: center center;
+//         background-size: contain;
+//         vertical-align: middle;
+//         margin-right: 3px;
+//         background-image: url(/crafts/assets/images/ic_caution.webp);
+//       }
+//     }
+
+//     .unavailable {
+//       &::before {
+//         width: 12px;
+//         height: 12px;
+//         display: inline-block;
+//         content: "";
+//         background-repeat: no-repeat;
+//         background-position: center center;
+//         background-size: contain;
+//         vertical-align: middle;
+//         margin-right: 3px;
+//         background-image: url(/crafts/assets/images/ic_unavailable.webp);
+//       }
+//     }
+//   }
+// }

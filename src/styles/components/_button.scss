@@ -1,0 +1,12 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 60px;
+  @include mqsp() {
+    margin-top: 30px;
+  }
+}

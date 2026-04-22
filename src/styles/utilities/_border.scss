@@ -1,0 +1,28 @@
+@use "../imports/_mixins.scss" as *;
+@use "../imports/_variables.scss" as *;
+
+$radiuses: (
+  0: 0,
+  // !default
+  sm: 8px,
+  // !default
+  md: 16px,
+  // !default
+  lg: 32px,
+  // !default
+  full: 100vmax,
+  // !default
+);
+@each $class, $radiuse in $radiuses {
+  .rounded-#{$class} {
+    border-radius: $radiuse !important;
+  }
+
+  @each $bp, $size in $cssbreakpoints {
+    @include mqpc($bp) {
+      .rounded-#{$bp}-#{$class} {
+        border-radius: $radiuse !important;
+      }
+    }
+  }
+}

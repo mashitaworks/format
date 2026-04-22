@@ -1,0 +1,25 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.figure {
+  display: grid;
+  row-gap: 8px;
+}
+
+.figure__caption {
+  font-size: fz(14);
+
+  &--sl {
+    font-size: fz(16);
+  }
+
+  &--lg {
+    font-size: fz(20);
+    @include mqsp(lg) {
+      font-size: fz(18);
+    }
+    @include mqsp {
+      font-size: fz(16);
+    }
+  }
+}

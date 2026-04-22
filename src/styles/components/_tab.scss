@@ -1,0 +1,48 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+// .tab {
+//   &__header {
+//     background: #d2d2d2;
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     border-radius: 100vmax;
+//     margin-bottom: 40px;
+//     &--col3 {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//   }
+
+//   &__button {
+//     padding: 12px 20px;
+//     text-align: center;
+//     font-size: fz(18);
+//     font-weight: bold;
+//     border-radius: 100vmax;
+//     @include mqsp {
+//       font-size: fz(14);
+//       padding: 6px 16px;
+//     }
+//     &:hover {
+//     }
+//     &[aria-selected="true"] {
+//       color: var(--white);
+//     }
+
+//     &--sm-multiple-lines {
+//       @include mqsp {
+//         line-height: 1.6;
+//         padding: 16px 10px;
+//       }
+//     }
+//   }
+
+//   &__body {
+//   }
+
+//   &__panel {
+//     &[hidden] {
+//       display: none;
+//     }
+//   }
+// }

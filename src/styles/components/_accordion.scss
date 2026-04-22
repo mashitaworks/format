@@ -1,0 +1,78 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.accordion {
+  border-style: solid;
+  border-color: var(--dark-gray);
+  border-width: 1px 0 1px;
+}
+.accordion__head {
+  padding: 24px 36px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  @include mqsp {
+    padding: 24px 12px;
+  }
+}
+.accordion__category {
+  font-family: var(--font-family-en);
+  font-size: fz(20);
+  color: var(--primary);
+  border-right: 3px solid currentColor;
+  line-height: 1;
+  padding-right: 20px;
+}
+.accordion__heading {
+  font-weight: bold;
+  font-size: fz(20);
+  flex-grow: 1;
+  @include mqsp {
+    grid-row: 2;
+    grid-column: span 3;
+  }
+}
+.accordion__icon {
+  width: 40px;
+  aspect-ratio: 1;
+  position: relative;
+  @include mqsp {
+    grid-column: 3;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background-color: var(--black);
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 15px);
+    @include mqsp {
+      width: 20px;
+      left: calc(50% - 10px);
+    }
+  }
+  &::before {
+  }
+  &::after {
+    transition: 0.2s rotate ease-in-out;
+    rotate: 90deg;
+    .accordion[aria-expanded="true"] & {
+      transform-origin: center center;
+      rotate: 0deg;
+    }
+  }
+}
+.accordion__body {
+}
+.accordion__inner {
+  padding: 12px 60px 40px;
+  @include mqsp {
+    padding: 12px 15px 40px;
+  }
+}

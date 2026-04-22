@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "sass:math";
+
+@use "./_variables.scss" as *;
+
+@mixin mqsp($breakpoint: md) {
+  @media (max-width: #{map.get($breakpoints, $breakpoint) - 0.02}) {
+    @content;
+  }
+}
+@mixin mqpc($breakpoint: md) {
+  @media (min-width: #{map.get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+@function fz($size) {
+  @return calc(calc($size / 16) * 1rem);
+}
+
+@function line-spacing($font-size, $line-height: 1.5) {
+  @return round((($line-height - 1) * $font-size) / 2);
+}
+
+$base-font-size: 16;
+@function rem($px) {
+  @return math.div($px, $base-font-size) * 1rem;
+}

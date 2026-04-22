@@ -1,0 +1,57 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+// .tag-wrapper {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 10px;
+// }
+
+// .tag {
+//   font-size: fz(12);
+//   line-height: 1;
+//   padding: 6px 1em;
+//   text-decoration: none;
+//   display: inline-block;
+//   white-space: nowrap;
+//   background-color: var(--light-gray);
+//   text-align: center;
+
+//   &--light-primary {
+//     background-color: var(--light-primary);
+//   }
+
+//   &--gray {
+//     color: var(--white);
+//     background-color: var(--gray);
+//   }
+
+//   &--download {
+//     margin-left: 4px;
+//     &::before {
+//       content: "";
+//       display: inline-block;
+//       height: 1lh;
+//       width: 1em;
+//       background-image: url(/contents/shop/knks/images/lp/oled/images/ic_download.webp);
+//       background-repeat: no-repeat;
+//       background-position: center center;
+//       vertical-align: bottom;
+//       margin-right: 0.75em;
+//     }
+//   }
+
+//   &--lg {
+//     font-size: fz(14);
+//   }
+//   &--sm {
+//     font-size: fz(10);
+//   }
+
+//   &[href] {
+//     transition: 0.2s opacity ease-out;
+//     &:hover {
+//       opacity: 0.7;
+//     }
+//   }
+// }

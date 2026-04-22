@@ -1,0 +1,16 @@
+{
+  "title": "KANEKA OLED カネカ有機EL照明",
+  "url": "https://www.kanekaoled.jp/",
+  "ogImage": "https://www.kanekaoled.jp/assets/images/ogp.jpg",
+  "description": "カネカ有機EL照明「KANEKA OLED 」の公式ウェブサイトです。照明は、明るさや寿命だけではなく、やさしさや美しさで選ばれる時代へ。「KANEKA OLED」の光を、ぜひ体感してください。",
+  "newsYear": [
+    {
+      "href": "/news/",
+      "label": "お知らせ"
+    },
+    {
+      "href": "/news/2023.html",
+      "label": "2023年"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.checkbox-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+
+  @include mqsp {
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: start;
+  column-gap: 8px;
+  position: relative;
+
+  input {
+    appearance: none;
+    background: var(--white);
+    border: 1px solid var(--black);
+    width: 1em;
+    aspect-ratio: 1;
+    padding: 0;
+    margin: calc((1lh - 1em) / 2 + 1px) 0 0;
+    cursor: pointer;
+  }
+
+  &:has(:checked) {
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.375em;
+      top: calc((1lh - 1em) / 2 + 0.25em);
+      width: 0.25em;
+      height: 0.5em;
+      border: solid var(--black);
+      border-width: 0 1px 1px 0;
+      transform: rotate(45deg);
+    }
+  }
+}

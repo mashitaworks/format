@@ -1,0 +1,81 @@
+---
+// サイトフッターコンポーネント
+const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
+---
+
+<footer id="footer" class="layout-footer">
+  <div class="layout-footer__inner">
+    <a href="/" class="layout-footer__product-logo">
+      <img src={`${baseUrl}/images/kaneka_logo01.webp`} alt="Kaneka カガクでネガイをカナエル会社 オンラインストア" />
+    </a>
+    <nav class="layout-footer__grid">
+      <div class="layout-footer__grid-col">
+        <ul class="layout-footer__list">
+          <li>OLEDとは</li>
+        </ul>
+        <ul class="layout-footer__sub-list">
+          <li><a href="/about/concept/"><span>コンセプト</span></a></li>
+          <li><a href="/about/features/"><span>製品特長</span></a></li>
+          <li><a href="/about/architecture/"><span>建築化照明</span></a></li>
+          <li><a href="/about/inspection/"><span>検査・点検照明</span></a></li>
+        </ul>
+      </div>
+      <div class="layout-footer__grid-col">
+        <ul class="layout-footer__list">
+          <li>製品情報</li>
+        </ul>
+        <ul class="layout-footer__sub-list">
+          <li><a href="/products/architecture/"><span>建築化照明</span></a></li>
+          <li><a href="/products/inspection/"><span>検査・点検照明</span></a></li>
+          <li><a href="/products/general_lighting/"><span>一般照明</span></a></li>
+        </ul>
+      </div>
+      <div class="layout-footer__grid-col">
+        <ul class="layout-footer__list">
+          <li>採用事例</li>
+        </ul>
+        <ul class="layout-footer__sub-list">
+          <li><a href="/casestudy/architecture/"><span>建築化照明</span></a></li>
+          <li><a href="/casestudy/inspection/"><span>検査・点検照明</span></a></li>
+        </ul>
+      </div>
+      <div class="layout-footer__grid-col">
+        <ul class="layout-footer__list">
+          <li>企業情報</li>
+        </ul>
+        <ul class="layout-footer__sub-list">
+          <li><a href="/company/"><span>会社情報</span></a></li>
+          <li><a href="/news/"><span>ニュース</span></a></li>
+          <li><a href="/company/quality/"><span>品質について</span></a></li>
+          <li><a href="/documents/"><span>資料一覧</span></a></li>
+        </ul>
+      </div>
+      <div class="layout-footer__grid-col">
+        <ul class="layout-footer__list">
+          <li>お問い合わせ</li>
+        </ul>
+        <ul class="layout-footer__sub-list">
+          <li><a href="/contact/"><span>お問い合わせ</span></a></li>
+          <li><a href="/faq/"><span>FAQ</span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="layout-footer__links">
+      <li>
+        <a href="/news/">お知らせ</a>
+      </li>
+      <li>
+        <a href="/documents/">各種ダウンロード</a>
+      </li>
+      <li>
+        <a href="/faq/">よくある質問</a>
+      </li>
+    </ul>
+    <div class="layout-footer__sub-area">
+      <a href="https://www.kaneka.co.jp/" target="_blank" class="layout-footer__logo">
+        <img src={`${baseUrl}/images/logo_square.webp`} alt="カガクでネガイをカナエル会社 Kaneka" width="154" height="166" />
+      </a>
+    </div>
+    <small class="layout-footer__copy">All contents Copyright © Kaneka Corporation.All rights reserved.</small>
+  </div>
+</footer>

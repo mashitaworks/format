@@ -1,0 +1,84 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.filter-widget {
+  background-color: var(--light-gray);
+  border-radius: 35px;
+}
+.filter-widget__head {
+  box-sizing: border-box;
+  padding: 16px 36px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mqsp {
+    padding: 16px 24px;
+  }
+}
+.filter-widget__clearButton-wrapper {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 12px;
+}
+.filter-widget__clearButton {
+  background-color: #fff;
+  color: var(--black);
+  &::after {
+    display: none;
+  }
+}
+.filter-widget__accordion-icon {
+  position: relative;
+  width: 8px;
+  aspect-ratio: 1;
+  &::before,
+  &::after {
+    content: "";
+    height: 1px;
+    width: 7px;
+    background-color: var(--black);
+    position: absolute;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+    .filter-widget__head[aria-expanded="true"] & {
+      width: 11px;
+      bottom: 50%;
+    }
+  }
+  &::before {
+    right: 50%;
+    rotate: 45deg;
+    transform-origin: right bottom;
+    .filter-widget__head[aria-expanded="true"] & {
+      translate: 50% 1px;
+      transform-origin: center center;
+    }
+  }
+  &::after {
+    left: 50%;
+    rotate: -45deg;
+    transform-origin: left bottom;
+    .filter-widget__head[aria-expanded="true"] & {
+      translate: -50% 1px;
+      transform-origin: center center;
+    }
+  }
+}
+.filter-widget__body {
+  padding: 8px 36px 40px;
+  @include mqsp {
+    padding: 8px 24px 24px;
+  }
+}
+.filter-widget__button {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @include mqsp {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}

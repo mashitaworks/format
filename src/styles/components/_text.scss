@@ -1,0 +1,53 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+// .tc-navy {
+//   color: var(--navy);
+// }
+// .tc-orange {
+//   color: var(--orange);
+// }
+// .tc-orange-dark {
+//   color: var(--orange_dark);
+// }
+// .tc-gray-light {
+//   color: #cccccc;
+// }
+// .tc-orange-gradation {
+//   background: linear-gradient(90deg, #ff940b 0%, #ff5500 100%);
+//   color: transparent;
+//   -webkit-background-clip: text;
+//   background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   text-fill-color: transparent;
+// }
+// .text-trim-both {
+//   text-box: trim-both cap alphabetic;
+// }
+// .text-indent {
+//   display: flex;
+//   &_num {
+//     margin-right: 4px;
+//   }
+//   &_txt {
+//   }
+// }
+// .font-stlye-inter {
+//   font-family: var(--inter);
+// }
+
+.bullet-text {
+  position: relative;
+  padding-left: 12px;
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: var(--dark-gray);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    left: 0;
+    top: 1.0em;
+    transform: translateY(-50%);
+  }
+}
