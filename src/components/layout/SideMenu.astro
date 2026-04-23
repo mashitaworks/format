@@ -1,0 +1,99 @@
+---
+// サイトヘッダーコンポーネント
+
+interface Props {
+  currentPage?: string;
+}
+const { currentPage } = Astro.props;
+const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
+---
+
+<div class="s-menu js-hamburger is-active">
+  <button class="s-menu__btn s-menu__btn--close">
+    <span class="s-menu__btn-icon s-menu__btn-icon--close"></span>
+    <span class="s-menu__btn-text">Close</span>
+  </button>
+
+  <div class="s-menu__inner">
+    <div class="s-menu__left">
+      <div class="s-menu__logo">
+        <img src={`${baseUrl}/images/logo_white.svg`} alt="logo" />
+      </div>
+      <p class="s-menu__name">パーソナルジム RING FIT</p>
+      <p class="s-menu__access">〒910-0016 福井県福井市大宮6丁目15-26<br />DonDoビル （C・D号室）</p>
+      <p class="s-menu__map"><a href="#">Google Map</a></p>
+      <p class="s-menu__time">営業時間 / 9：00-23：00<br />定休日 / 不定休</p>
+      <p class="s-menu__tel">TEL / 090-8096-0539</p>
+      <ul class="s-menu__sns">
+        <li><img src={`${baseUrl}/images/icon_Instagram.png`} alt="Instagram" /></li>
+        <li><img src={`${baseUrl}/images/icon_youtube.png`} alt="YouTube" /></li>
+      </ul>
+    </div>
+
+    <div class="s-menu__right">
+      <ul class="s-menu__list">
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Top</span>
+            <span class="s-menu__link-ja">トップ</span>
+          </a>
+        </li>
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">About</span>
+            <span class="s-menu__link-ja">私たちについて</span>
+          </a>
+        </li>
+
+        <li class="s-menu__item s-menu__item--has-children">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Training</span>
+            <span class="s-menu__link-ja">トレーニング</span>
+          </a>
+
+          <ul class="s-menu__sub-list">
+            <li><a href="#" class="s-menu__sub-link">筋力トレーニング</a></li>
+            <li><a href="#" class="s-menu__sub-link">コンディショニング</a></li>
+            <li><a href="#" class="s-menu__sub-link">ピラティス</a></li>
+            <li><a href="#" class="s-menu__sub-link">ストレッチ</a></li>
+            <li><a href="#" class="s-menu__sub-link">目標管理・食事管理</a></li>
+            <li><a href="#" class="s-menu__sub-link">アフターサポート</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="s-menu__list">
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Price/Plan</span>
+            <span class="s-menu__link-ja">料金プラン</span>
+          </a>
+        </li>
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Guide</span>
+            <span class="s-menu__link-ja">入会の流れ</span>
+          </a>
+        </li>
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Case Study</span>
+            <span class="s-menu__link-ja">お客様レビュー</span>
+          </a>
+        </li>
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Blog</span>
+            <span class="s-menu__link-ja">RING FITマガジン</span>
+          </a>
+        </li>
+        <li class="s-menu__item">
+          <a href="#" class="s-menu__link">
+            <span class="s-menu__link-en">Contact</span>
+            <span class="s-menu__link-ja">初回体験予約 / お問い合わせ</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

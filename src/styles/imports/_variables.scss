@@ -107,7 +107,7 @@ $breakpoints: (
 );
 
 $cssbreakpoints: (
-  "xs": map-get($breakpoints, "xs"),
+  // "xs": map-get($breakpoints, "xs"),
   // !default
   "sm": map.get($breakpoints, "sm"),
   // !default
@@ -115,5 +115,5 @@ $cssbreakpoints: (
   // !default
   "lg": map.get($breakpoints, "lg"),
   // !default
-  "xl": map.get($breakpoints, "xl"), // !default
+  "xl": map.get($breakpoints, "xl") // !default
 );

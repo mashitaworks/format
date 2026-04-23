@@ -1,6 +1,8 @@
 ---
 import Footer from "@components/layout/Footer.astro";
+import SideMenu from "@components/layout/SideMenu.astro";
 import Header from "@components/layout/Header.astro";
+import Fv from "@components/layout/Fv.astro";
 
 interface Props {
   title?: string;
@@ -76,13 +78,15 @@ const base = import.meta.env.BASE_URL;
   <body>
     <div id="wrapper">
       <Header />
+      <SideMenu />
       <main id="main">
+        <Fv />
         <slot />
       </main>
     </div>
     {
       isDev ? (
-        <script src="/src/scripts/main.js" /> // 開発時
+        <script type="module" src="/src/scripts/main.js" /> // 開発時
       ) : (
         <script src="/assets/js/main.js" /> // ビルド時
       )

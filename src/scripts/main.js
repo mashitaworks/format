@@ -1,7 +1,11 @@
+import Swiper from "swiper";
+import "swiper/css";
+
 document.addEventListener("DOMContentLoaded", function () {
   initProductImageSlider();
   initFVSlider();
   initScrollObserve();
+  initSwiper();
 
   const mediaQuery = window.matchMedia("(max-width: 991.98px)");
   const headerButton = document.querySelector(".header-button");
@@ -186,11 +190,11 @@ function initScrollObserve() {
 }
 
 function initFVSlider() {
-  const slides = document.querySelectorAll(".fv-slide");
-  const counter = document.querySelector(".fv-counter");
-  const prevBtn = document.querySelector(".fv-prev");
-  const nextBtn = document.querySelector(".fv-next");
-  const pauseBtn = document.querySelector(".fv-pause");
+  const slides = document.querySelectorAll(".fv__slide");
+  const counter = document.querySelector(".fv__counter");
+  const prevBtn = document.querySelector(".fv__prev");
+  const nextBtn = document.querySelector(".fv__next");
+  const pauseBtn = document.querySelector(".fv__pause");
   if (slides.length === 0 || !counter || !prevBtn || !nextBtn || !pauseBtn) {
     return;
   }
@@ -242,4 +246,27 @@ function initFVSlider() {
   prevBtn.addEventListener("click", prevSlide);
   nextBtn.addEventListener("click", nextSlide);
   pauseBtn.addEventListener("click", togglePause);
+}
+
+function initSwiper() {
+  const el = document.querySelector(".swiper");
+  if (!el) return;
+
+  new Swiper(el, {
+    loop: true,
+    pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+  });
 }
