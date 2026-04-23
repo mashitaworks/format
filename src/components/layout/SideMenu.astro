@@ -1,0 +1,63 @@
+---
+// サイドメニューコンポーネント
+
+interface Props {
+  currentPage?: string;
+}
+const { currentPage } = Astro.props;
+const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
+---
+
+<!-- サイドメニュー（完全に分離） -->
+<div class="drawer js-drawer">
+  <nav class="drawer__content">
+    <ul class="drawer__sections">
+      <li class="drawer__section">
+        <div class="drawer__section-header">
+          <h3 class="drawer__title">Recommend</h3>
+          <p class="drawer__text">おすすめコンテンツ</p>
+        </div>
+
+        <a href="#" class="drawer-card">
+          <div class="drawer-card__image"></div>
+          <p class="drawer-card__title">コレクション3</p>
+          <span class="drawer-card__tag">#Exhibitions</span>
+        </a>
+      </li>
+
+      <li class="drawer__section">
+        <h3 class="drawer__title">About Nakanoshima</h3>
+        <ul class="drawer-links">
+          <li><a href="#" class="drawer-links__link">中之島について</a></li>
+          <li><a href="#" class="drawer-links__link">お問い合わせ</a></li>
+        </ul>
+      </li>
+
+      <li class="drawer__section">
+        <h3 class="drawer__title">All News</h3>
+        <ul class="drawer-links">
+          <li><a href="#" class="drawer-links__link">Information</a></li>
+          <li><a href="#" class="drawer-links__link">Event</a></li>
+          <li><a href="#" class="drawer-links__link">Exhibitions</a></li>
+        </ul>
+      </li>
+
+      <li class="drawer__section">
+        <h3 class="drawer__title">Creative Contents</h3>
+        <ul class="drawer-links">
+          <li><a href="#" class="drawer-links__link">アーティストリサーチ</a></li>
+          <li><a href="#" class="drawer-links__link">エクスチェンジプログラム</a></li>
+          <li><a href="#" class="drawer-links__link">ミーティングポイント</a></li>
+          <li><a href="#" class="drawer-links__link">中之島プロモーション</a></li>
+          <li><a href="#" class="drawer-links__link">クルージング</a></li>
+        </ul>
+      </li>
+      <li class="drawer__section">
+        <h3 class="drawer__title">About Us</h3>
+        <ul class="drawer-links">
+          <li><a href="#" class="drawer-links__link">クリエイティブアイランド中之島について</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
