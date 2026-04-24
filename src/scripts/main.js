@@ -1,245 +1,210 @@
-document.addEventListener("DOMContentLoaded", function () {
-  initProductImageSlider();
-  initFVSlider();
-  initScrollObserve();
-
-  const mediaQuery = window.matchMedia("(max-width: 991.98px)");
-  const headerButton = document.querySelector(".header-button");
+document.addEventListener("DOMContentLoaded", () => {
+  // breakpoint
+  const mediaQueryList = window.matchMedia("(max-width: 991.98px)");
+  mediaQueryList.addEventListener("change", listener);
+  listener(mediaQueryList);
+  function listener(event) {
+    const headerButton = document.querySelector(".layout-header__button");
+    const headerMenu = document.getElementById("headerMenu");
+    const body = document.body;
+    if (event.matches) {
+      // SP
+      body.classList.remove("is-gnavi-open");
+      headerButton.setAttribute('aria-expanded', 'false');
+    } else {
+      // PC
+      body.classList.remove("is-gnavi-open");
+      headerButton.setAttribute('aria-expanded', 'false');
+    }
+  }
+  const headerButton = document.querySelector(".layout-header__button");
   const body = document.body;
 
-  function updateNavigation(event) {
-    if (event.matches) {
-      body.classList.remove("is-gnavi-open");
-      headerButton.setAttribute("aria-expanded", "false");
-      headerButton.style.display = "";
+  headerButton.addEventListener('pointerdown', () => {
+    const isOpen = body.classList.toggle("is-gnavi-open");
+    headerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  document.addEventListener("click", (e) => {
+    const toggle = e.target.closest(".header-menu__list [aria-expanded]");
+    if (!toggle) return;
+
+    e.preventDefault();
+
+    // aria-expanded の真偽値を反転
+    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isExpanded));
+
+    // 対応するサブメニューを取得
+    const subMenu = toggle.nextElementSibling;
+    if (!subMenu || !subMenu.classList.contains("header-menu__sub-list"))
+      return;
+
+    // スライドアニメーション
+    if (!isExpanded) {
+      slideDown(subMenu, 300);
     } else {
-      body.classList.remove("is-gnavi-open");
-      headerButton.setAttribute("aria-expanded", "false");
-      headerButton.style.display = "none";
+      slideUp(subMenu, 300);
+    }
+  });
+
+  const swiperEl = document.querySelector('.swiper');
+  if (swiperEl) {
+    const slideEls = swiperEl.querySelectorAll('.swiper-slide');
+    if (slideEls.length > 1) {
+      const swiper = new Swiper(swiperEl, {
+        loop: true,
+        slidesPerView: 1,
+        autoplay: {
+          delay: 1500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            centeredSlides: false,
+          },
+          1400: {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            loopAdditionalSlides: 6,
+          },
+        },
+      });
+
+      // 再生・停止ボタン
+      const playBtn = document.getElementById('swiper-play');
+      const pauseBtn = document.getElementById('swiper-pause');
+
+      playBtn?.addEventListener('click', () => {
+        swiper.autoplay.start();
+        swiperEl.classList.remove('paused');
+      });
+
+      pauseBtn?.addEventListener('click', () => {
+        swiper.autoplay.stop();
+        swiperEl.classList.add('paused');
+      });
+    } else {
+      swiperEl.classList.add('is-single');
     }
   }
 
-  updateNavigation(mediaQuery);
-  mediaQuery.addEventListener("change", updateNavigation);
-  headerButton.addEventListener("pointerdown", () => {
-    if (!mediaQuery.matches) return;
+  //カレント
+  const sidebarLink = document.querySelectorAll('.layout-sidebar__list-link');
+  if(sidebarLink.length > 1) {
 
-    const isOpen = body.classList.toggle("is-gnavi-open");
-    headerButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-
-  // PCメニュー
-  const menuWrappers = document.querySelectorAll(".js-mega-menu");
-  menuWrappers.forEach((wrapper) => {
-    const triggers = wrapper.querySelectorAll(".js-mega-menu-trigger");
-    const targets = wrapper.querySelectorAll(".js-mega-menu-target");
-
-    // トリガーにホバーで対応ターゲットを開く
-    triggers.forEach((trigger) => {
-      const targetId = trigger.getAttribute("aria-controls");
-      const target = document.getElementById(targetId);
-
-      if (!target) return;
-
-      trigger.addEventListener("click", (e) => {
-        if (mediaQuery.matches) return;
-
-        e.preventDefault();
-        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
-
-        // すべて閉じる
-        closeAll(triggers, targets);
-
-        if (!isExpanded) {
-          trigger.setAttribute("aria-expanded", "true");
-          target.classList.add("is-open");
-        }
-      });
+    let nowPath = location.pathname;
+    let nowLink = document.querySelectorAll('.layout-sidebar__list-link');
+    sidebarLink.forEach(sidebarLink => {
+      if(sidebarLink.getAttribute('href') == nowPath) {
+        sidebarLink.classList.add("layout-sidebar__list-link--current");
+        sidebarLink.setAttribute('aria-current', 'page')
+      }
     });
+  }
 
+  //tab
+  const tabEl = document.querySelectorAll('.tab');
+  tabEl.forEach(tabEl => {
+    let tab_id = tabEl.getAttribute('id');
+    let tab_start = Number(tabEl.getAttribute('data-start')) || 0;
+      new A11yTabs(`#${tab_id} .tab__header`, `#${tab_id} .tab__panel`, tab_start);
   });
 
-  function closeAll(triggers, targets) {
-    triggers.forEach((t) => t.setAttribute("aria-expanded", "false"));
-    targets.forEach((t) => t.classList.remove("is-open"));
-  }
+  //scroll-hint
+  new ScrollHint('.scroll-hint', {
+    suggestiveShadow: true,
+    remainingTime: 5000,
+    i18n: {
+      scrollable: 'スクロールできます'
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    const target = e.target.closest('a[href^="#"]');
+    if (!target) return;
+    const hash = target.hash;
+    if (!hash || hash === "#") {
+      e.preventDefault();
+      return;
+    }
+    const id = hash.slice(1);
+    const targetElement = document.getElementById(id);
+    if (!targetElement) return;
+
+    const header = document.querySelector("header");
+    const headerHeight = header ? header.offsetHeight : 0;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+    e.preventDefault();
+  });
 
 });
 
-function initProductImageSlider() {
-  const mainImg = document.querySelector(".main-product__image-main img");
-  const subLis = document.querySelectorAll(".main-product__image-sub li");
-  if (!mainImg || subLis.length === 0) {
-    return;
-  }
+function slideUp(element, duration = 300, callback) {
+  const startHeight = element.offsetHeight;
+  const startTime = performance.now();
 
-  const subImgs = document.querySelectorAll(".main-product__image-sub img");
-  const leftArrow = document.querySelector(".arrow-left");
-  const rightArrow = document.querySelector(".arrow-right");
-  const colorLinks = document.querySelectorAll(".main-product__description__color a");
+  function animate(time) {
+    const elapsed = time - startTime;
+    const progress = Math.min(elapsed / duration, 1); // 0 〜 1
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const color = urlParams.get("color");
-  let currentIndex = 0;
+    // 高さを計算して適用（イージングなしならそのままprogress）
+    element.style.height = startHeight * (1 - progress) + 'px';
 
-  if (color === "brick") {
-    currentIndex = 12;
-  } else if (color === "beige") {
-    currentIndex = 6;
-  } else {
-    currentIndex = 0;
-  }
-
-  updateMainImage();
-
-  if (leftArrow) {
-    leftArrow.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + subLis.length) % subLis.length;
-      updateMainImage();
-    });
-  }
-
-  if (rightArrow) {
-    rightArrow.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % subLis.length;
-      updateMainImage();
-    });
-  }
-
-  subImgs.forEach((img, index) => {
-    img.addEventListener("click", function () {
-      currentIndex = index;
-      updateMainImage();
-    });
-  });
-
-  
-  function updateMainImage() {
-    const selectedImg = subLis[currentIndex]?.querySelector("img");
-    if (mainImg && selectedImg) {
-      mainImg.src = selectedImg.src;
-      mainImg.alt = selectedImg.alt;
-    }
-    subLis.forEach((li, index) => {
-      li.classList.toggle("is-select", index === currentIndex);
-    });
-    updateColorSelection();
-  }
-
-  function updateColorSelection() {
-    if (colorLinks.length === 0) {
-      return;
-    }
-
-    colorLinks.forEach((link) => link.classList.remove("is-select"));
-    let selectedIndex = 0;
-
-    if (currentIndex >= 12) {
-      selectedIndex = 2;
-    } else if (currentIndex >= 6) {
-      selectedIndex = 1;
-    }
-
-    if (colorLinks[selectedIndex]) {
-      colorLinks[selectedIndex].classList.add("is-select");
-    }
-  }
-
-  colorLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const colorName = link.querySelector("p")?.textContent?.trim();
-      if (colorName === "White") {
-        currentIndex = 0;
-      } else if (colorName === "Beige") {
-        currentIndex = 6;
-      } else if (colorName === "Brick") {
-        currentIndex = 12;
-      }
-      updateMainImage();
-    });
-  });
-}
-
-function initScrollObserve() {
-  const sections = document.querySelectorAll('.section');
-  
-  // オプション：画面の下から何px入ったら発火させるか
-  const options = {
-    root: null,
-    rootMargin: "0px 0px -60px 0px",
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, options);
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-}
-
-function initFVSlider() {
-  const slides = document.querySelectorAll(".fv-slide");
-  const counter = document.querySelector(".fv-counter");
-  const prevBtn = document.querySelector(".fv-prev");
-  const nextBtn = document.querySelector(".fv-next");
-  const pauseBtn = document.querySelector(".fv-pause");
-  if (slides.length === 0 || !counter || !prevBtn || !nextBtn || !pauseBtn) {
-    return;
-  }
-
-  let currentSlide = 0;
-  let intervalId;
-  let isPaused = false;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-    counter.textContent = `${index + 1}/${slides.length}`;
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  function startAutoSlide() {
-    intervalId = setInterval(nextSlide, 10000);
-  }
-
-  function stopAutoSlide() {
-    clearInterval(intervalId);
-  }
-
-  function togglePause() {
-    if (isPaused) {
-      startAutoSlide();
-      pauseBtn.classList.remove("paused");
-      isPaused = false;
+    if (progress < 1) {
+      requestAnimationFrame(animate);
     } else {
-      stopAutoSlide();
-      pauseBtn.classList.add("paused");
-      isPaused = true;
+      element.style.display = 'none';
+      element.style.removeProperty('height');
+      if (callback) callback();
     }
   }
 
-  showSlide(currentSlide);
-  startAutoSlide();
+  element.style.overflow = 'hidden';
+  element.style.height = startHeight + 'px';
 
-  prevBtn.addEventListener("click", prevSlide);
-  nextBtn.addEventListener("click", nextSlide);
-  pauseBtn.addEventListener("click", togglePause);
+  requestAnimationFrame(animate);
+}
+
+function slideDown(element, duration = 300, callback) {
+  element.style.removeProperty('display');
+  let display = window.getComputedStyle(element).display;
+  if (display === 'none') display = 'block';
+  element.style.display = display;
+
+  const targetHeight = element.offsetHeight;
+  const startTime = performance.now();
+
+  element.style.height = '0';
+  element.style.overflow = 'hidden';
+
+  function animate(time) {
+    const elapsed = time - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    element.style.height = targetHeight * progress + 'px';
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      element.style.removeProperty('height');
+      element.style.removeProperty('overflow');
+      if (callback) callback();
+    }
+  }
+
+  requestAnimationFrame(animate);
 }
