@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loop: true,
         slidesPerView: 1,
         autoplay: {
-          delay: 1500,
+          delay: 500,
           disableOnInteraction: false,
         },
         pagination: {
