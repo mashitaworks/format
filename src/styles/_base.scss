@@ -38,12 +38,12 @@ body {
   font-family: var(--font-family-base);
   color: var(--black);
   background: var(--white);
-  overflow-x: clip;
+  // overflow-x: clip;
 }
 
 html:has(.is-gnavi-open) {
   scrollbar-gutter: stable;
-  overflow: clip;
+  // overflow: clip;
 }
 
 :where(a:not[class]) {

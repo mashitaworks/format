@@ -2,24 +2,32 @@
 @use "../imports/variables" as *;
 
 .section {
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  // overflow: hidden;
+  // opacity: 0;
+  // transform: translateY(24px);
+  // transition:
+  //   opacity 0.8s ease,
+  //   transform 0.8s ease;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-inline: 20px;
+    box-sizing: border-box;
+  }
+  &__accent {
+    width: 40%;
+  }
+
+  &__title {
+    width: 60%;
+    font-size: fz(40);
+    color: var(--primary);
+  }
 }
 .section.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.section__inner {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-block: 50px;
-
-  @include mqsp(xl) {
-    padding: 40px 20px;
-  }
 }

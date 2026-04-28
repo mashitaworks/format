@@ -1,210 +1,245 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // breakpoint
-  const mediaQueryList = window.matchMedia("(max-width: 991.98px)");
-  mediaQueryList.addEventListener("change", listener);
-  listener(mediaQueryList);
-  function listener(event) {
+  initBreakpoint();
+  initHamburger();
+  initAccordion();
+  initSwiper();
+  initCurrentLink();
+  initTabs();
+  initScrollHint();
+  initSmoothScroll();
+});
+
+/* ===============================
+  Breakpoint
+=============================== */
+function initBreakpoint() {
+  const mql = window.matchMedia("(max-width: 991.98px)");
+  mql.addEventListener("change", handleChange);
+  handleChange(mql);
+
+  function handleChange(e) {
     const headerButton = document.querySelector(".layout-header__button");
-    const headerMenu = document.getElementById("headerMenu");
-    const body = document.body;
-    if (event.matches) {
-      // SP
-      body.classList.remove("is-gnavi-open");
-      headerButton.setAttribute('aria-expanded', 'false');
-    } else {
-      // PC
-      body.classList.remove("is-gnavi-open");
-      headerButton.setAttribute('aria-expanded', 'false');
-    }
+    if (!headerButton) return;
+
+    document.body.classList.remove("is-gnavi-open");
+    headerButton.setAttribute("aria-expanded", "false");
   }
-  const headerButton = document.querySelector(".layout-header__button");
-  const body = document.body;
+}
 
-  headerButton.addEventListener('pointerdown', () => {
-    const isOpen = body.classList.toggle("is-gnavi-open");
-    headerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+/* ===============================
+  Hamburger
+=============================== */
+function initHamburger() {
+  const button = document.querySelector(".layout-header__button");
+  if (!button) return;
+
+  button.addEventListener("click", () => {
+    const isOpen = document.body.classList.toggle("is-gnavi-open");
+    button.setAttribute("aria-expanded", String(isOpen));
   });
+}
 
+/* ===============================
+  Accordion
+=============================== */
+function initAccordion() {
   document.addEventListener("click", (e) => {
-    const toggle = e.target.closest(".header-menu__list [aria-expanded]");
+    const toggle = e.target.closest("[data-accordion-trigger]");
     if (!toggle) return;
 
     e.preventDefault();
 
-    // aria-expanded の真偽値を反転
-    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!isExpanded));
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
 
-    // 対応するサブメニューを取得
-    const subMenu = toggle.nextElementSibling;
-    if (!subMenu || !subMenu.classList.contains("header-menu__sub-list"))
-      return;
+    const targetId = toggle.dataset.target;
+    const panel = document.getElementById(targetId);
+    if (!panel) return;
 
-    // スライドアニメーション
-    if (!isExpanded) {
-      slideDown(subMenu, 300);
-    } else {
-      slideUp(subMenu, 300);
-    }
+    isOpen ? slideUp(panel) : slideDown(panel);
   });
-
-  const swiperEl = document.querySelector('.swiper');
-  if (swiperEl) {
-    const slideEls = swiperEl.querySelectorAll('.swiper-slide');
-    if (slideEls.length > 1) {
-      const swiper = new Swiper(swiperEl, {
-        loop: true,
-        slidesPerView: 1,
-        autoplay: {
-          delay: 1500,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-            centeredSlides: false,
-          },
-          1400: {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            loopAdditionalSlides: 6,
-          },
-        },
-      });
-
-      // 再生・停止ボタン
-      const playBtn = document.getElementById('swiper-play');
-      const pauseBtn = document.getElementById('swiper-pause');
-
-      playBtn?.addEventListener('click', () => {
-        swiper.autoplay.start();
-        swiperEl.classList.remove('paused');
-      });
-
-      pauseBtn?.addEventListener('click', () => {
-        swiper.autoplay.stop();
-        swiperEl.classList.add('paused');
-      });
-    } else {
-      swiperEl.classList.add('is-single');
-    }
-  }
-
-  //カレント
-  const sidebarLink = document.querySelectorAll('.layout-sidebar__list-link');
-  if(sidebarLink.length > 1) {
-
-    let nowPath = location.pathname;
-    let nowLink = document.querySelectorAll('.layout-sidebar__list-link');
-    sidebarLink.forEach(sidebarLink => {
-      if(sidebarLink.getAttribute('href') == nowPath) {
-        sidebarLink.classList.add("layout-sidebar__list-link--current");
-        sidebarLink.setAttribute('aria-current', 'page')
-      }
-    });
-  }
-
-  //tab
-  const tabEl = document.querySelectorAll('.tab');
-  tabEl.forEach(tabEl => {
-    let tab_id = tabEl.getAttribute('id');
-    let tab_start = Number(tabEl.getAttribute('data-start')) || 0;
-      new A11yTabs(`#${tab_id} .tab__header`, `#${tab_id} .tab__panel`, tab_start);
-  });
-
-  //scroll-hint
-  new ScrollHint('.scroll-hint', {
-    suggestiveShadow: true,
-    remainingTime: 5000,
-    i18n: {
-      scrollable: 'スクロールできます'
-    }
-  });
-
-  document.addEventListener("click", function (e) {
-    const target = e.target.closest('a[href^="#"]');
-    if (!target) return;
-    const hash = target.hash;
-    if (!hash || hash === "#") {
-      e.preventDefault();
-      return;
-    }
-    const id = hash.slice(1);
-    const targetElement = document.getElementById(id);
-    if (!targetElement) return;
-
-    const header = document.querySelector("header");
-    const headerHeight = header ? header.offsetHeight : 0;
-    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-    e.preventDefault();
-  });
-
-});
-
-function slideUp(element, duration = 300, callback) {
-  const startHeight = element.offsetHeight;
-  const startTime = performance.now();
-
-  function animate(time) {
-    const elapsed = time - startTime;
-    const progress = Math.min(elapsed / duration, 1); // 0 〜 1
-
-    // 高さを計算して適用（イージングなしならそのままprogress）
-    element.style.height = startHeight * (1 - progress) + 'px';
-
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    } else {
-      element.style.display = 'none';
-      element.style.removeProperty('height');
-      if (callback) callback();
-    }
-  }
-
-  element.style.overflow = 'hidden';
-  element.style.height = startHeight + 'px';
-
-  requestAnimationFrame(animate);
 }
 
-function slideDown(element, duration = 300, callback) {
-  element.style.removeProperty('display');
-  let display = window.getComputedStyle(element).display;
-  if (display === 'none') display = 'block';
-  element.style.display = display;
+/* ===============================
+  Swiper
+=============================== */
+function initSwiper() {
+  const el = document.querySelector(".swiper");
+  if (!el) return;
 
-  const targetHeight = element.offsetHeight;
-  const startTime = performance.now();
+  // 二重初期化防止
+  if (el.classList.contains("swiper-initialized")) return;
 
-  element.style.height = '0';
-  element.style.overflow = 'hidden';
-
-  function animate(time) {
-    const elapsed = time - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-
-    element.style.height = targetHeight * progress + 'px';
-
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    } else {
-      element.style.removeProperty('height');
-      element.style.removeProperty('overflow');
-      if (callback) callback();
-    }
+  const slides = el.querySelectorAll(".swiper-slide");
+  if (slides.length <= 1) {
+    el.classList.add("is-single");
+    return;
   }
 
-  requestAnimationFrame(animate);
+  const swiper = new Swiper(el, {
+    loop: true,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 50000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      renderBullet: function (index, className) {
+        const labels = ["product", "magazine", "works"]; // 任意
+
+        return `<span class="${className} swiper-pagination-text">
+          ${labels[index] || index + 1}
+        </span>`;
+      },
+    },
+    navigation: {
+      clickable: false,
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      1400: {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        loopAdditionalSlides: 6,
+      },
+    },
+  });
+
+  bindSwiperControls(swiper, el);
+}
+
+function bindSwiperControls(swiper, el) {
+  const play = document.getElementById("swiper-play");
+  const pause = document.getElementById("swiper-pause");
+
+  play?.addEventListener("click", () => {
+    swiper.autoplay.start();
+    el.classList.remove("paused");
+  });
+
+  pause?.addEventListener("click", () => {
+    swiper.autoplay.stop();
+    el.classList.add("paused");
+  });
+}
+
+/* ===============================
+  Current Link
+=============================== */
+function initCurrentLink() {
+  const links = document.querySelectorAll(".layout-sidebar__list-link");
+  if (!links.length) return;
+
+  const current = location.pathname.replace(/\/$/, "");
+
+  links.forEach((link) => {
+    const href = link.getAttribute("href")?.replace(/\/$/, "");
+    if (href === current) {
+      link.classList.add("layout-sidebar__list-link--current");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+}
+
+/* ===============================
+  Tabs
+=============================== */
+function initTabs() {
+  document.querySelectorAll(".tab").forEach((tab) => {
+    const id = tab.id;
+    const start = Number(tab.dataset.start) || 0;
+
+    new A11yTabs(`#${id} .tab__header`, `#${id} .tab__panel`, start);
+  });
+}
+
+/* ===============================
+  ScrollHint
+=============================== */
+function initScrollHint() {
+  if (!document.querySelector(".scroll-hint")) return;
+
+  new ScrollHint(".scroll-hint", {
+    suggestiveShadow: true,
+    remainingTime: 5000,
+    i18n: { scrollable: "スクロールできます" },
+  });
+}
+
+/* ===============================
+  Smooth Scroll
+=============================== */
+function initSmoothScroll() {
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const id = link.hash.slice(1);
+    if (!id) return e.preventDefault();
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+
+    const header = document.querySelector("header");
+    const offset = header?.offsetHeight || 0;
+
+    const top =
+      target.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({ top, behavior: "smooth" });
+  });
+  
+}
+
+/* ===============================
+  Animation Utils
+=============================== */
+function slideUp(el, duration = 300) {
+  const start = el.offsetHeight;
+  const startTime = performance.now();
+
+  el.style.overflow = "hidden";
+
+  requestAnimationFrame(function animate(time) {
+    const p = Math.min((time - startTime) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+
+    el.style.height = start * (1 - ease) + "px";
+
+    if (p < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      el.style.display = "none";
+      el.style.removeProperty("height");
+      el.style.removeProperty("overflow");
+    }
+  });
+}
+
+function slideDown(el, duration = 300) {
+  el.style.display = "block";
+  const end = el.offsetHeight;
+  const startTime = performance.now();
+
+  el.style.height = "0";
+  el.style.overflow = "hidden";
+
+  requestAnimationFrame(function animate(time) {
+    const p = Math.min((time - startTime) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+
+    el.style.height = end * ease + "px";
+
+    if (p < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      el.style.removeProperty("height");
+      el.style.removeProperty("overflow");
+    }
+  });
 }

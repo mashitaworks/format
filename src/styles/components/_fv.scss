@@ -1,105 +1,177 @@
 @use "../imports/mixins" as *;
 @use "../imports/variables" as *;
 
+.fv {
+  margin-top: 140px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  &__image {
+    height: calc(100vh - 140px);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__lead {
+    overflow: hidden;
+
+    color: var(--primary);
+    font-size: fz(40);
+    display: flex;
+    column-gap: 40px;
+    position: absolute;
+    right: 240px;
+    top: -80px;
+    z-index: 5;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        display: block;
+        height: 60px;
+        transform: translateX(2em);
+        animation: textanimation 1s ease forwards;
+        animation-delay: 500;
+      }
+    }
+    &-text:first-of-type {
+      margin-top: 40px;
+    }
+  }
+}
+
+/* 1文字目 */
+.fv__lead-text span:nth-child(1) {
+  animation-delay: 0.2s;
+}
+/* 2文字目 */
+.fv__lead-text span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+/* 3文字目 */
+.fv__lead-text span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+/* 4文字目 */
+.fv__lead-text span:nth-child(4) {
+  animation-delay: 0.8s;
+}
+/* 5文字目 */
+.fv__lead-text span:nth-child(5) {
+  animation-delay: 1s;
+}
+/* 6文字目 */
+.fv__lead-text span:nth-child(6) {
+  animation-delay: 1.2s;
+}
+/* 7文字目 */
+.fv__lead-text span:nth-child(7) {
+  animation-delay: 1.4s;
+}
+/* 8文字目 */
+.fv__lead-text span:nth-child(8) {
+  animation-delay: 1.6s;
+}
+/* 9文字目 */
+.fv__lead-text span:nth-child(9) {
+  animation-delay: 1.8s;
+}
+/* 10文字目 */
+.fv__lead-text span:nth-child(10) {
+  animation-delay: 2s;
+}
+/* 11文字目 */
+.fv__lead-text span:nth-child(11) {
+  animation-delay: 2.2s;
+}
+
+@keyframes textanimation {
+  0% {
+    transform: translateX(2em);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .swiper-pagination-wrapper {
   position: absolute;
-  z-index: 2;
-  bottom: 32px;
-  background: rgba(213, 128, 128, 0.55);
-  border-radius: 100vmax;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  height: 26px;
-  padding: 4px 8px;
-  // left: calc(50% + 120px);
-  right: calc((100vw - 1148px) / 2 + 16px + 314px);
-  @include mqsp(xl) {
-    right: 340px;
-  }
-  @include mqsp(lg) {
-    right: var(--side-padding);
-    bottom: var(--side-padding);
-  }
-  @include mqsp() {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: 8px;
-  }
+  left: 40px;
+  bottom: 200px;
+  z-index: 5;
+
   .swiper-pagination {
-    --swiper-pagination-bullet-horizontal-gap: 8px;
-    --swiper-theme-color: var(--navy);
-    --swiper-pagination-bullet-inactive-color: transparent;
-    position: static;
+    list-style-type: none;
     display: flex;
-    line-height: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
   .swiper-pagination-bullet {
-    border: 1px solid var(--navy);
     opacity: 1;
   }
   .is-single & {
     display: none;
   }
+  .swiper-pagination-bullet {
+    background: none;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    color: var(--primary);
+  }
+  .swiper-pagination-text {
+    cursor: pointer;
+    margin: 0 8px;
+    font-weight: normal;
+    font-size: 14px;
+    color: var(--primary);
+  }
 }
 
-.swiper-control {
-  width: 10px;
+.swiper-slide {
+  transition:
+    filter 3s ease,
+    opacity 3s ease;
+  filter: blur(8px);
+  opacity: 0.5;
+}
+
+.swiper-slide-active {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.swiper-nav-text {
   position: relative;
-  aspect-ratio: 1 / 1;
-  margin-left: 8px;
-  margin-right: 8px;
-  button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-  }
+  display: inline-block;
 }
 
-#swiper-play {
-  display: none;
-  span {
-    background: var(--navy);
-    clip-path: polygon(100% 50%, 0 0, 0 100%);
-  }
-  .paused & {
-    display: block;
-  }
-}
-#swiper-pause {
-  span {
-    background: var(--navy);
-    clip-path: polygon(
-      0% 0%,
-      0% 100%,
-      30% 100%,
-      30% 0,
-      70% 0,
-      70% 100%,
-      30% 100%,
-      30% 100%,
-      100% 100%,
-      100% 0%
-    );
-  }
-  .paused & {
-    display: none;
-  }
-}
+.swiper-nav-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 160%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 
-.swiper-wrapper {
-  .is-single & {
-    justify-content: center;
+  ellipse {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 1.5;
+
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+
+    transition: stroke-dashoffset 0.5s ease;
   }
 }

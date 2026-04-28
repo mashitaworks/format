@@ -2,149 +2,85 @@
 @use "../imports/variables" as *;
 
 .cta {
-  margin-top: 136px;
-  color: var(--white);
-  background-color: var(--black);
-  padding-block: 96px;
-  padding-inline: var(--side-padding);
-  @include mqsp {
-    padding-inline: var(--side-padding-mobile);
+  margin-bottom: 120px;
+  &__inner {
+    margin-inline: 20px;
+    background: #f6f6f6;
+    padding: 3vw 6.25vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .link-group + & {
-    margin-top: 0;
+
+  &__title {
+    font-size: 2.5vw;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--primary);
+    font-family: neue-haas-grotesk-display, sans-serif;
+    font-display: swap;
   }
-}
-.cta__inner {
-  max-width: 1100px;
-  margin-inline: auto;
-}
-.cta__heading {
-  text-align: center;
-  margin-bottom: 32px;
-  font-family: var(--font-family-en);
-  font-weight: 400;
-  font-size: fz(40);
-  line-height: 1.5;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  @include mqsp {
-    font-size: fz(30);
+
+  &__content {
+    width: 40%;
   }
-}
-.cta__text {
-  text-align: center;
-  font-size: fz(20);
-  @include mqsp {
+  &__text {
     font-size: fz(16);
+    color: var(--primary);
+    margin-bottom: 16px;
   }
-}
-.cta__buttons {
-  display: flex;
-  justify-content: center;
-  gap: 36px;
-  @include mqpc {
-    .cta__button {
-      width: calc(50% - 18px);
-    }
+  &__text-sub {
+    font-size: fz(12);
+    line-height: 2;
+
+    color: var(--primary);
+    opacity: 0.6;
   }
-  @include mqsp {
+
+  &__button {
+    width: 70px;
+    height: 70px;
+    background: var(--primary);
+    border-radius: 100%;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    gap: 0;
-  }
-}
-
-.cta__button,
-.buy__button {
-  width: 100%;
-  max-width: 276px;
-  max-height: 60px;
-  text-decoration: none !important;
-  color: var(--white) !important;
-  background-color: var(--black);
-  display: block;
-  padding-block: 15px;
-  padding-inline: 35px 20px;
-  transition:
-    0.2s opacity ease-out,
-    color 0.2s ease-out,
-    background-color 0.2s ease-out;
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 49%;
-    left: 24px;
-    width: 2px;
-    height: 2px;
-    transform: translateY(50%);
-    background-color: var(--white);
-  }
-  &:hover {
-    background-color: var(--primary);
-    color: var(--white);
-    .cta__button-inner {
-      margin-right: -8px;
+    span {
+      font-size: fz(10);
     }
-    .buy__button-inner {
-      &::before {
-        content: "";
-        bottom: 30%;
-      }
+    .cta__arrow {
+      height: 20px;
+      width: 24px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+
+      &::before,
       &::after {
         content: "";
-        bottom: 30%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: url(#{$content-base-url}/images/icon_arrow.svg) no-repeat
+          center / cover;
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+          hue-rotate(183deg) brightness(106%) contrast(102%);
+      }
+
+      // 1個目
+      &::before {
+        left: 8px;
+      }
+      // 2個目（右に配置）
+      &::after {
+        left: 30px;
       }
     }
-  }
-}
-
-.cta__button-inner,
-.buy__button-inner {
-  font-size: fz(16);
-  font-family: var(--font-family-point);
-  display: block;
-  position: relative;
-  transition:
-    0.2s margin-right ease-out,
-    border-color 0.2s ease-out;
-  &::before,
-  &::after {
-    content: "";
-    width: 10px;
-    height: 0;
-    border-bottom: 1px solid var(--white);
-    position: absolute;
-    right: 0;
-    bottom: 50%;
-    transform-origin: right center;
-    transition:
-      border-color 0.2s ease-out,
-      bottom 0.2s ease-out,
-      right 0.2s ease-out;
-  }
-  &::before {
-    transform: translateY(-50%) rotate(50deg);
-  }
-  &::after {
-    transform: translateY(-50%) rotate(-50deg);
-  }
-}
-
-.buy__button-inner {
-  &::before,
-  &::after {
-    content: "";
-    right: 10px;
-    bottom: 45%;
-    width: 10px;
-    height: 0;
-    transform-origin: right center;
-  }
-  &::before {
-    transform: translateY(-50%) rotate(145deg);
-  }
-  &::after {
-    transform: translateY(-50%) rotate(35deg);
   }
 }

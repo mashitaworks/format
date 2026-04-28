@@ -6,33 +6,348 @@ const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
 ---
 
 <Layout title={title}>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide fv__image">
-        <picture>
-          <source media="(min-width: 768px)" width="2100" height="696" srcset="/assets/images/dummy.png" />
-          <img src="/assets/images/dummy.png" width="750" height="550" alt="" loading="lazy" />
-        </picture>
+  <div class="fv">
+    <ul class="fv__lead">
+      <li class="fv__lead-text">
+        <span>ゴ</span>
+        <span>シ</span>
+        <span>ョ</span>
+        <span>ウ</span>
+        <span>カ</span>
+        <span>イ</span>
+      </li>
+      <li class="fv__lead-text">
+        <span>サ</span>
+        <span>ク</span>
+        <span>ヒ</span>
+        <span>ン</span>
+        <span>ノ</span>
+      </li>
+    </ul>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide fv__image">
+          <picture>
+            <source media="(min-width: 768px)" width="2100" height="696" srcset="/assets/images/mv_product.png" />
+            <img src="/assets/images/mv_product.png" width="750" height="550" alt="" loading="lazy" />
+          </picture>
+        </div>
+        <div class="swiper-slide fv__image">
+          <picture>
+            <source media="(min-width: 768px)" width="2100" height="696" srcset="/assets/images/mv_magazine.png" />
+            <img src="/assets/images/mv_magazine.png" width="750" height="550" alt="" loading="lazy" />
+          </picture>
+        </div>
+        <div class="swiper-slide fv__image">
+          <picture>
+            <source media="(min-width: 768px)" width="2100" height="696" srcset="/assets/images/mv_works.png" />
+            <img src="/assets/images/mv_works.png" width="750" height="550" alt="" loading="lazy" />
+          </picture>
+        </div>
       </div>
-      <div class="swiper-slide fv__image">
-        <picture>
-          <source media="(min-width: 768px)" width="2100" height="696" srcset="/assets/images/dummy2.png" />
-          <img src="/assets/images/dummy.png" width="750" height="550" alt="" loading="lazy" />
-        </picture>
-      </div>
-      <div class="swiper-slide fv__image">
-        <picture>
-          <source media="(min-width: 768px)" width="2100" height="696" srcset="/assets/images/dummy3.png" />
-          <img src="/assets/images/dummy.png" width="750" height="550" alt="" loading="lazy" />
-        </picture>
-      </div>
-    </div>
-    <div class="swiper-pagination-wrapper">
-      <div class="swiper-pagination"></div>
-      <div class="swiper-control">
-        <button id="swiper-play" aria-label="再生"><span></span></button>
-        <button id="swiper-pause" aria-label="停止"><span></span></button>
+      <div class="swiper-pagination-wrapper">
+        <div class="swiper-pagination">
+          <button data-slide="0">product </button>
+          <button data-slide="1">magazine</button>
+          <button data-slide="2">works</button>
+        </div>
       </div>
     </div>
   </div>
+
+  <section class="section">
+    <div class="section__inner">
+      <h2 class="section__title">product</h2>
+
+      <div class="product">
+        <div class="product__inner">
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content">
+            <p class="product__accent">To all those disillusioned with creativity. ベリーマン is the missing piece you need.</p>
+          </div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content"></div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <div class="product__item"><img src={`${baseUrl}/images/product_planning.png`} alt="" /></div>
+              <div class="product__footer">
+                <p class="product__footer-text">product</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+            <span class="product__text">Owned Media Planning</span>
+          </div>
+
+          <div class="product__content">
+            <a class="product__link" href="#">
+              <p class="product__accent">To all those disillusioned with creativity. ベリーマン is the missing piece you need.</p>
+              <div class="product__footer">
+                <p class="product__footer-text">ビューオール</p>
+                <div class="product__arrow">
+                  <span class="product__arrow-arrow">(</span>
+                  <span class="product__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="magazine">
+        <div class="magazine__inner">
+          <h2 class="magazine__title">magazine</h2>
+
+          <div class="magazine__content">
+            <div class="magazine__header">
+              <h3 class="magazine__subtitle">マガジン</h3>
+              <p class="magazine__read-text">The Magazine chronicles ベ リ ー マ ン and its partners' daily experiments and creative challenges.<br /> Updates are irregular, so please be patient as you wait for new content.</p>
+            </div>
+            <a href="#" class="magazine__content-inner">
+              <div class="magazine__pic"><img src={`${baseUrl}/images/magazine.png`} alt="" /></div>
+              <div class="magazine__footer">
+                <p class="magazine__footer-text">ビューオール</p>
+                <div class="magazine__arrow">
+                  <span class="magazine__arrow-arrow">(</span>
+                  <span class="magazine__arrow-arrow">)</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="section__header">
+        <span class="section__accent">works</span>
+        <h2 class="section__title">ワークス</h2>
+      </div>
+
+      <div class="works">
+        <div class="works__inner">
+          <ul class="works__box">
+            <li class="works__box-item">
+              <div class="works__box-pic">
+                <img src={`${baseUrl}/images/works_persol.png`} alt="" />
+              </div>
+              <ul class="works__box-content">
+                <li class="works__box-items">
+                  <span>Client</span>
+                  <p>パーソルメディアスイッチ株式会社</p>
+                </li>
+                <li class="works__box-items">
+                  <span>Project</span>
+                  <p>企業ミッション</p>
+                </li>
+                <li class="works__box-items">
+                  <span>Type</span>
+                  <div class="works__box-type">
+                    <span>Editorial</span>
+                    <span>Copywriting</span>
+                    <span>Movie</span>
+                    <span>Website</span>
+                    <span>Planning</span>
+                    <span>Others</span>
+                  </div>
+                </li>
+                <li class="works__box-items">
+                  <a href="#" class="works__footer">
+                    <p class="works__footer-text">ビューオール</p>
+                    <div class="works__arrow">
+                      <span class="works__arrow-arrow">(</span>
+                      <span class="works__arrow-arrow">)</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="works__box-item">
+              <div class="works__box-pic">
+                <img src={`${baseUrl}/images/works_persol.png`} alt="" />
+              </div>
+              <ul class="works__box-content">
+                <li class="works__box-items">
+                  <span>Client</span>
+                  <p>パーソルメディアスイッチ株式会社</p>
+                </li>
+                <li class="works__box-items">
+                  <span>Project</span>
+                  <p>企業ミッション</p>
+                </li>
+                <li class="works__box-items">
+                  <span>Type</span>
+                  <div class="works__box-type">
+                    <span>Editorial</span>
+                    <span>Copywriting</span>
+                    <span>Movie</span>
+                    <span>Website</span>
+                    <span>Planning</span>
+                    <span>Others</span>
+                  </div>
+                </li>
+                <li class="works__box-items">
+                  <a href="#" class="works__footer">
+                    <p class="works__footer-text">ビューオール</p>
+                    <div class="works__arrow">
+                      <span class="works__arrow-arrow">(</span>
+                      <span class="works__arrow-arrow">)</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="works__box-item">
+              <div class="works__box-pic">
+                <img src={`${baseUrl}/images/works_persol.png`} alt="" />
+              </div>
+              <ul class="works__box-content">
+                <li class="works__box-items">
+                  <span>Client</span>
+                  <p>パーソルメディアスイッチ株式会社</p>
+                </li>
+                <li class="works__box-items">
+                  <span>Project</span>
+                  <p>企業ミッション</p>
+                </li>
+                <li class="works__box-items">
+                  <span>Type</span>
+                  <div class="works__box-type">
+                    <span>Editorial</span>
+                    <span>Copywriting</span>
+                    <span>Movie</span>
+                    <span>Website</span>
+                    <span>Planning</span>
+                    <span>Others</span>
+                  </div>
+                </li>
+                <li class="works__box-items">
+                  <a href="#" class="works__footer">
+                    <p class="works__footer-text">ビューオール</p>
+                    <div class="works__arrow">
+                      <span class="works__arrow-arrow">(</span>
+                      <span class="works__arrow-arrow">)</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="cta">
+        <div class="cta__inner">
+          <h3 class="cta__title">Contact</h3>
+          <div class="cta__content">
+            <p class="cta__text">お客さまの抱える課題、悩みに合わせた最適なソリューションをご提案いたします。 まずはお気軽にご相談ください。</p>
+            <p class="cta__text-sub">We will propose optimal solutions tailored to the issues and problems you face. Please feel free to contact us for a consultation.</p>
+          </div>
+          <a href="#" class="cta__button">
+            <span>お問い合わせ</span>
+            <div class="cta__arrow">
+              <span class="cta__arrow-arrow">(</span>
+              <span class="cta__arrow-arrow">)</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

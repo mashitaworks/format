@@ -1,0 +1,146 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.works {
+  width: 100%;
+  margin-bottom: 120px;
+
+  &__inner {
+    padding-inline: 20px;
+  }
+
+  &__box-item {
+    display: flex;
+    gap: 3.75vw;
+    padding-top: 40px;
+  }
+  &__box-item:first-of-type {
+    border-top: 1px solid var(--primary);
+  }
+
+  &__box-pic,
+  &__box-content {
+    width: 50%;
+  }
+  &__box-pic {
+    max-width: 650px;
+    display: block;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__box-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-block: 15px;
+    border-bottom: 1px solid rgba(20, 78, 136, 0.118);
+    span {
+      width: 20px;
+      font-size: fz(12);
+      color: #888;
+    }
+    p,
+    div {
+      width: 80%;
+      font-size: fz(13);
+      color: var(--primary);
+    }
+  }
+  &__box-items:last-of-type {
+    border-bottom: none;
+    justify-content: flex-end;
+    span,
+    p,
+    div {
+      width: fit-content;
+      font-size: fz(13);
+      color: var(--primary);
+    }
+
+    .works__footer {
+      text-decoration: none;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    p.works__footer-text {
+      margin-right: 12px;
+    }
+    div.works__arrow {
+      width: 20px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: url(#{$content-base-url}/images/icon_arrow.svg) no-repeat
+          center / cover;
+      }
+
+      // 1個目
+      &::before {
+        left: 6px;
+      }
+      // 2個目（右に配置）
+      &::after {
+        left: 30px;
+      }
+    }
+  }
+
+  &__box-type span {
+    margin-right: 24px;
+    position: relative;
+    &::after {
+      content: "/";
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__box-type span:last-of-type {
+    &::after {
+      content: "";
+      display: none;
+    }
+  }
+}
+
+.works__footer:hover {
+  .works__arrow::before {
+    animation: arrow-flow 0.6s linear infinite;
+  }
+
+  .works__arrow::after {
+    animation: arrow-flow 0.6s linear infinite;
+    animation-delay: 0.3s;
+  }
+}
+
+@keyframes arrow-flow {
+  0% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(12px) translateY(-50%);
+    opacity: 0;
+  }
+}
