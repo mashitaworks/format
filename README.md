@@ -1,6 +1,6 @@
 # プロジェクト名：
 
-site:https://veryman.jp/
+site:https://twoe.jp/
 
 ### 基本情報
 

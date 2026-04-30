@@ -1,0 +1,88 @@
+---
+// サイトヘッダーコンポーネント
+
+interface Props {
+  currentPage?: string;
+}
+const { currentPage } = Astro.props;
+const baseUrl = import.meta.env.VITE_BASE_URL || "/assets";
+---
+
+<div class="fv">
+  <div class="fv__inner">
+    <div class="fv__left">
+      <img src={`${baseUrl}/images/mv01_pc.webp`} alt="" />
+    </div>
+    <div class="fv__right">
+      <div class="fv__nav-content">
+        <nav class="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__item">
+              <a class="main-nav__link">Top</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link">Concept</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link">How to Use</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link">Product</a>
+            </li>
+          </ul>
+          <ul class="main-nav__list">
+            <li class="main-nav__item">
+              <a class="main-nav__link">Fragrance</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link">Shop List</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link">Q & A</a>
+            </li>
+            <li class="main-nav__item">
+              <a class="main-nav__link">New</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="button button--primary button__purchase">
+          <span class="button__purchase">
+            <img src={`${baseUrl}/images/icon__purchase.svg`} alt="" />
+          </span>
+          <span class="button__text">購入する</span>
+        </button>
+
+        <nav class="sub-nav">
+          <ul class="sub-nav__list">
+            <li class="sub-nav__item">
+              <a class="sub-nav__link">Contact</a>
+            </li>
+            <li class="sub-nav__item">
+              <a class="sub-nav__link">Company</a>
+            </li>
+            <li class="sub-nav__item">
+              <a class="sub-nav__link">privacy policy</a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="sns-nav">
+          <ul class="sns-nav__list">
+            <li class="sns-nav__item">
+              <a class="sns-nav__link"><img src={`${baseUrl}/images/x.svg`} alt="X" /></a>
+            </li>
+            <li class="sns-nav__item">
+              <a class="sns-nav__link"><img src={`${baseUrl}/images/Instagram.svg`} alt="Instagram" /></a>
+            </li>
+            <li class="sns-nav__item">
+              <a class="sns-nav__link"><img src={`${baseUrl}/images/tictok.svg`} alt="tictok" /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="fv__image">
+        <img src={`${baseUrl}/images/mv02_pc.webp`} alt="" />
+      </div>
+    </div>
+  </div>
+</div>

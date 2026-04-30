@@ -1,0 +1,21 @@
+@use "../imports/mixins" as *;
+@use "../imports/variables" as *;
+
+.main-nav {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  column-gap: 3rem;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+
+  &__link {
+    font-size: fz(16);
+    font-weight: 300;
+    text-decoration: none;
+    color: var(--white);
+  }
+}
