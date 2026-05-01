@@ -8,16 +8,28 @@
   &__inner {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   &__left {
     width: 50%;
     height: auto;
+    position: relative;
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
+    }
+
+    &::after {
+      content: "Tox";
+      color: aquamarine;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      font-weight: 600;
     }
   }
 
@@ -29,7 +41,12 @@
   &__nav-content {
     padding: 5%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 50%, 20%, 30%;
     grid-template-rows: repeat(2, 1fr);
   }
+}
+
+.button__purchase {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
 }
